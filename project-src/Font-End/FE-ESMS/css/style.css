@@ -1,0 +1,93 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+*{
+    overflow-x:hidden;
+    overflow-y: hidden;
+}
+
+.thummail img{
+    position: absolute;
+}
+
+.login{
+    position: relative;
+    display: block;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 110px;
+}
+
+h1{
+    font-size: 42px;
+    font-weight: bold;
+    line-height: 1.2;
+    letter-spacing: 4px;
+}
+
+.login_form{
+    margin-top: 100px;
+    margin-left: 750px;
+    background-color: rgba(255, 255, 255, 0.669);
+    width: 390px;
+    height: 290px;
+    border-radius: 10px;
+    box-shadow: 6px -5px 11px 0px #969696;
+}
+
+.login_form h3{
+    font-size: 30px;
+    margin-top: 25px;
+    margin-bottom: 0px;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.login_form p:nth-child(2) {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+.btn_google {
+    text-decoration: none;
+    background-color: #df4436;
+    color: white;
+    padding: 14px 98px;
+    border-radius: 6px;
+    transition: .3s all ease; 
+}
+
+.btn_google img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    transform: translateY(4px);
+}
+
+.btn_google:hover {
+    background-color: #cc1302;
+}
+
+.contact{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px; 
+}
+
+.contact a{
+    text-decoration: none;
+}
+
+.contact img{
+    max-width: 30px;
+    padding: 0px 20px;
+    margin-top: 15px;
+}
+
+.footer{
+    margin-top: 20px;
+}
