@@ -47,3 +47,57 @@ header {
     right: -15%;
     transform: translateY(-50%);
 }
+
+.contact {
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contact h1 {
+    font-size: 36px;
+    font-weight: 900;
+}
+
+.content p {
+    font-size: 18px;
+    color: #000000;
+}
+
+figcaption{
+    color: #f26f21;
+    font-weight: 700;
+}
+.ModuleContent{
+    background-color: #f8f8f8;
+    border-radius: 7px;
+    padding: 20px 0px;
+    text-align: left;
+}
+.info{
+    padding-left: 20px;
+}
+
+.info a{
+    text-decoration: none;
+    color: #666666;
+}
+
+.lnr {
+    display: inline-block;
+    fill: currentColor;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.lnr-map-marker{
+    color: #666666;
+    font-size: 20px;
+}
+.lnr-phone-handset{
+    color: #666666;
+    font-size: 20px;
+}
+.lnr-envelope{
+    color: #666666;
+    font-size: 20px;
+}
