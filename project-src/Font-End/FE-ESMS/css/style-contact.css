@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -15,28 +15,27 @@ header {
     box-shadow: 0px 1px 10px 3px #f26f21;
 }
 
-.navbar{
+.navbar {
     border-radius: 0px 0px 10px 10px;
 }
+
 .navbar-logo img {
     max-width: 100%;
     height: auto;
 }
 
-.navbar-title{
+.navbar-title {
     margin-top: 16px;
     margin-left: 10px;
     font-size: 17px;
 }
-/* .navbar-nav .nav-link {
-    margin: 5px 10px;
-} */
-.item-menu{
+
+.item-menu {
     margin-top: 10px;
     padding: 0px 10px;
 }
 
-.ava-profile img{
+.ava-profile img {
     border-radius: 50%
 }
 
@@ -63,21 +62,23 @@ header {
     color: #000000;
 }
 
-figcaption{
+figcaption {
     color: #f26f21;
     font-weight: 700;
 }
-.ModuleContent{
+
+.ModuleContent {
     background-color: #f8f8f8;
     border-radius: 7px;
     padding: 20px 0px;
     text-align: left;
 }
-.info{
+
+.info {
     padding-left: 20px;
 }
 
-.info a{
+.info a {
     text-decoration: none;
     color: #666666;
 }
@@ -89,15 +90,17 @@ figcaption{
     height: 1.5em;
 }
 
-.lnr-map-marker{
+.lnr-map-marker {
     color: #666666;
     font-size: 20px;
 }
-.lnr-phone-handset{
+
+.lnr-phone-handset {
     color: #666666;
     font-size: 20px;
 }
-.lnr-envelope{
+
+.lnr-envelope {
     color: #666666;
     font-size: 20px;
 }

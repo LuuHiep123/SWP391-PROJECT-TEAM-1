@@ -1,17 +1,17 @@
-body{
-    font-family: 'Roboto', sans-serif;
-}
-
 *{
     overflow-x:hidden;
     overflow-y: hidden;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
 }
 
 .thummail img{
     position: absolute;
 }
 
-.login{
+.themes-login{
     position: relative;
     display: block;
     text-align: center;
@@ -22,7 +22,7 @@ body{
 
 h1{
     font-size: 42px;
-    font-weight: bold;
+    font-weight: bolder;
     line-height: 1.2;
     letter-spacing: 4px;
 }
@@ -46,7 +46,7 @@ h1{
 }
 
 .login_form p:nth-child(2) {
-    margin-top: 30px;
+    margin-top: 25px;
     margin-bottom: 20px;
 }
 
@@ -83,7 +83,7 @@ h1{
 }
 
 .contact img{
-    max-width: 30px;
+    max-width: 40px;
     padding: 0px 20px;
     margin-top: 15px;
 }
