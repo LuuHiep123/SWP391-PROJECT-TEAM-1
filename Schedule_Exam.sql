@@ -100,5 +100,19 @@ Room_ID NVARCHAR(256) FOREIGN KEY REFERENCES ExamRoom(Room_ID),
 
 INSERT INTO [Account] (Email, Account_ID, [Name], Gender, [Address], DOB, IMG, RoleName)
 VALUES
-
 ('hieplx160641@fpt.edu.vn', '2', 'Luu Xuan Hiep', 'Male', 'Q9', '1995-05-15', 0xFEDCBA9876543210, 'Student');
+
+SELECT * FROM [Account]
+DECLARE @AccountID INT = 160000
+
+WHILE @AccountID <= 179999
+BEGIN
+    DECLARE @Email NVARCHAR(255) = 'user' + CAST(@AccountID AS NVARCHAR(10)) + '@fpt.edu.vn'
+    
+    INSERT INTO [Account] (Email, Account_ID, [Name], Gender, [Address], DOB, IMG, RoleName)
+    VALUES
+    (@Email, @AccountID, 'User ' + CAST(@AccountID AS NVARCHAR(10)), 'Male', 'Q' + CAST(@AccountID AS NVARCHAR(10)), '2000-01-01', 0x0123456789ABCDEF, 'Student')
+    
+    SET @AccountID = @AccountID + 1
+END
+drop table [Account]
