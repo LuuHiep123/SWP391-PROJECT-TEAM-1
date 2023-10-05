@@ -98,9 +98,6 @@ Slot_ID NVARCHAR(256) FOREIGN KEY REFERENCES [Slot](Slot_ID),
 Room_ID NVARCHAR(256) FOREIGN KEY REFERENCES ExamRoom(Room_ID),
 )
 
-INSERT INTO [Account] (Email, Account_ID, [Name], Gender, [Address], DOB, IMG, RoleName)
-VALUES
-('hieplx160641@fpt.edu.vn', '2', 'Luu Xuan Hiep', 'Male', 'Q9', '1995-05-15', 0xFEDCBA9876543210, 'Student');
 
 SELECT * FROM [Account]
 DECLARE @AccountID INT = 160000
@@ -115,4 +112,6 @@ BEGIN
     
     SET @AccountID = @AccountID + 1
 END
-drop table [Account]
+UPDATE [Account]
+SET Email = REPLACE(Email, '@fpt.edu.vn', '@fe.edu.vn')
+WHERE Email IN ('userxxxx1@fpt.edu.vn', 'userxxxx2@fpt.edu.vn', 'userxxxx3@fpt.edu.vn', 'userxxxx4@fpt.edu.vn', 'userxxxx5@fpt.edu.vn', 'userxxxx6@fpt.edu.vn', 'userxxxx7@fpt.edu.vn', 'userxxxx8@fpt.edu.vn', 'userxxxx9@fpt.edu.vn');
