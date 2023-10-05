@@ -98,17 +98,7 @@ Slot_ID NVARCHAR(256) FOREIGN KEY REFERENCES [Slot](Slot_ID),
 Room_ID NVARCHAR(256) FOREIGN KEY REFERENCES ExamRoom(Room_ID),
 )
 
+INSERT INTO [Account] (Email, Account_ID, [Name], Gender, [Address], DOB, IMG, RoleName)
+VALUES
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+('hieplx160641@fpt.edu.vn', '2', 'Luu Xuan Hiep', 'Male', 'Q9', '1995-05-15', 0xFEDCBA9876543210, 'Student');
