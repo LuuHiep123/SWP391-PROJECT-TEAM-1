@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Schedule Management System</title>
+
+    <!-- link-favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="image/favicon.png">
+
+    <!--link-Bootstrap CSS -->
+    <link rel="preconnect" href="https://maxcdn.bootstrapcdn.com">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- link-style -->
+    <link rel="stylesheet" href="css/style-navbar.css">
+    <link rel="stylesheet" href="css/style-exam_schudle.css">
+
+    <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/select/1.7.0/css/select.dataTables.min.css">
+
+    <!-- link-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-logo" href="Home-Student.html"><img src="image/fpt-favicon.png" alt="Logo"
+                            width="70"></a>
+                    <p class="navbar-title">Exam Schedule Management System</p>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item item-menu">
+                                <a class="nav-link" href="ExamSchudle-TestingStaff.html">Exam Schedule</a>
+                            </li>
+                            <li class="nav-item item-menu">
+                                <a class="nav-link" href="#">Contact</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                    <img id="ProfileImage" class="rounded-circle" style="height:40px;width:40px"
+                                        src="https://i.chungta.vn/2023/03/02/-7802-1677731962.jpg" alt="avatar-profile">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-left">
+                                    <div id="pnlProfile">
+                                        <span class="dropdown-item">
+                                            Name:
+                                            <span id="lblName" style="font-weight:bold;">FPT Nguyen</span>
+                                        </span>
+                                        <span class="dropdown-item">
+                                            Email:
+                                            <span id="pnlEmail" style="font-weight:bold;">KHAITHIHCM@fe.edu.vn</span>
+                                        </span>
+                                        <span class="dropdown-item">
+                                            User's role:
+                                            <span id="lblRole" style="font-weight:bold;">Testing Staff</span>
+
+                                        </span>
+                                        <span class="dropdown-item">
+                                        </span>
+                                        <span class="dropdown-item">
+                                            <a id="lbtnSignOut"
+                                                style="text-decoration: none; display:inline-block;width:100%;"
+                                                href="Login.html">Log out</a>
+                                        </span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 table">
+                        <div style="margin-top: 30px;" class="exam-schedule" role="region" tabindex="0">
+                            <table id="example" class="display">
+                                <caption>Exam Schedule: </caption>
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Subjects</th>
+                                        <th>Time</th>
+                                        <th>Date</th>
+                                        <th>Room</th>
+                                        <th>Form</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>SSG101</td>
+                                        <td>10:00 - 11:00</td>
+                                        <td>11/12/2023</td>
+                                        <td>FPT - 001</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>CSI104</td>
+                                        <td>10:00 - 12:00</td>
+                                        <td>11/13/2023</td>
+                                        <td>NVH - 400</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>SSL101c</td>
+                                        <td>11:00 - 12:00</td>
+                                        <td>11/14/2023</td>
+                                        <td>FPT - 002</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>PRF192</td>
+                                        <td>11:00 - 12:00</td>
+                                        <td>11/15/2023</td>
+                                        <td>NVH - 401</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>MAE101</td>
+                                        <td>10:00 - 11:00</td>
+                                        <td>11/16/2023</td>
+                                        <td>FPT - 003</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>CEA201</td>
+                                        <td>10:00 - 12:00</td>
+                                        <td>11/17/2023</td>
+                                        <td>NVH - 402</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>PRO192</td>
+                                        <td>09:00 - 11:00</td>
+                                        <td>11/18/2023</td>
+                                        <td>FPT - 004</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>MAD101</td>
+                                        <td>09:00 - 10:00</td>
+                                        <td>11/19/2023</td>
+                                        <td>NVH - 403</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>OSG202</td>
+                                        <td>10:00 - 11:00</td>
+                                        <td>11/20/2023</td>
+                                        <td>FPT - 005</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>NWC203c</td>
+                                        <td>10:00 - 12:00</td>
+                                        <td>11/21/2023</td>
+                                        <td>NVH - 404</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td>11</td>
+                                        <td>SSG104</td>
+                                        <td>09:00 - 10:00</td>
+                                        <td>11/22/2023</td>
+                                        <td>FPT - 006</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>JPD113</td>
+                                        <td>09:00 - 11:00</td>
+                                        <td>11/23/2023</td>
+                                        <td>NVH - 405</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>WED201c</td>
+                                        <td>10:00 - 11:00</td>
+                                        <td>11/24/2023</td>
+                                        <td>FPT - 007</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>14</td>
+                                        <td>CSD201</td>
+                                        <td>10:00 - 12:00</td>
+                                        <td>11/25/2023</td>
+                                        <td>NVH - 406</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>DBI202</td>
+                                        <td>11:00 - 12:00</td>
+                                        <td>11/26/2023</td>
+                                        <td>FPT - 008</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>16</td>
+                                        <td>MAS291</td>
+                                        <td>11:00 - 12:00</td>
+                                        <td>11/27/2023</td>
+                                        <td>NVH - 407</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>SWE201c</td>
+                                        <td>10:00 - 11:00</td>
+                                        <td>11/28/2023</td>
+                                        <td>FPT - 009</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18</td>
+                                        <td>JPD123</td>
+                                        <td>10:00 - 12:00</td>
+                                        <td>11/29/2023</td>
+                                        <td>NVH - 408</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>19</td>
+                                        <td>IOT102</td>
+                                        <td>09:00 - 10:00</td>
+                                        <td>11/30/2023</td>
+                                        <td>FPT - 010</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td>PRJ301</td>
+                                        <td>09:00 - 11:00</td>
+                                        <td>12/01/2023</td>
+                                        <td>NVH - 409</td>
+                                        <td>PEA</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>21</td>
+                                        <td>ITE302c</td>
+                                        <td>10:00 - 11:00</td>
+                                        <td>12/02/2023</td>
+                                        <td>FPT - 011</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>22</td>
+                                        <td>ACC101</td>
+                                        <td>10:00 - 12:00</td>
+                                        <td>12/03/2023</td>
+                                        <td>NVH - 410</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>23</td>
+                                        <td>SWR302</td>
+                                        <td>09:00 - 11:00</td>
+                                        <td>12/04/2023</td>
+                                        <td>FPT - 012</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>24</td>
+                                        <td>SWT301</td>
+                                        <td>09:00 - 10:00</td>
+                                        <td>12/05/2023</td>
+                                        <td>NVH - 411</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>25</td>
+                                        <td>ENW492c</td>
+                                        <td>10:00 - 12:00</td>
+                                        <td>12/06/2023</td>
+                                        <td>FPT - 013</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>26</td>
+                                        <td>EXE101</td>
+                                        <td>10:00 - 11:00</td>
+                                        <td>12/07/2023</td>
+                                        <td>NVH - 412</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>27</td>
+                                        <td>SAP311</td>
+                                        <td>09:00 - 10:00</td>
+                                        <td>12/08/2023</td>
+                                        <td>FPT - 014</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>28</td>
+                                        <td>SAP321</td>
+                                        <td>09:00 - 11:00</td>
+                                        <td>12/09/2023</td>
+                                        <td>NVH - 413</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    <tr>
+                                        <td>29</td>
+                                        <td>PMG201c</td>
+                                        <td>10:00 - 11:00</td>
+                                        <td>12/10/2023</td>
+                                        <td>FPT - 015</td>
+                                        <td>EOS</td>
+                                    </tr>
+                                    <tr>
+                                        <td>30</td>
+                                        <td>SWD392</td>
+                                        <td>10:00 - 12:00</td>
+                                        <td>12/11/2023</td>
+                                        <td>NVH - 414</td>
+                                        <td>PEA</td>
+                                    </tr>
+                                    
+                                </tbody>
+                                
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 link-container regulation">
+                        <a href="#" class="show-text">Regulations</a>
+                        <div class="hidden-text" id="hiddenText">
+                            <iframe src="image/pdf/[SU23] Quy định thi Practical Exam (PE).pdf">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!--Link table -->
+        <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+        <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+
+        <script src="https://cdn.datatables.net/select/1.7.0/js/dataTables.select.min.js"></script>
+
+        <script src="js/script.js"></script>
+
+</body>
+
+</html>
