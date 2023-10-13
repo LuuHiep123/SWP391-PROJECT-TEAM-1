@@ -11,29 +11,3 @@ showTextLink.addEventListener('click', () => {
         isTextVisible = false;
     }
 });
-
-$(document).ready(function () {
-    // Initialize the first DataTable
-    $('#example').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ],
-        select: {
-            style: 'multi'
-        }
-    });
-
-    // Initialize the second DataTable
-
-    $('#example1').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ],
-        select: {
-            style: 'multi'
-        }
-    });
-});
-
