@@ -97,6 +97,13 @@ Slot_ID NVARCHAR(256) FOREIGN KEY REFERENCES [Slot](Slot_ID),
 Room_ID NVARCHAR(256) FOREIGN KEY REFERENCES ExamRoom(Room_ID),
 )
 
+-- ADD DATA INTO TABLE SUBJECT
+INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRF192','Programming Fundamentals','123456/789123','EOS,PEA')
+INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('MAE101','Mathematics for Engineering','712342','EOS')
+INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('CEA201','Computer Organization and Architecture','817234','EOS')
+INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRO192','Object-Oriented Programming','812784/912834','EOS,PEA')
+INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRN221','Advanced Cross-Platform Application Programming With .NET','178234/938454','EOS,PEA')
+
 
 SELECT * FROM [Account]
 DECLARE @AccountID INT = 160000
