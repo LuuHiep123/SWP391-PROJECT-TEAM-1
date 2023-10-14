@@ -54,8 +54,7 @@ Place bit,
 CREATE TABLE [Subject](
 Subject_ID NVARCHAR(256) PRIMARY KEY NOT NULL,
 Subject_Name NVARCHAR(256),
-Grace NVARCHAR(256),
-Decription NVARCHAR(256),
+Exam_Code NVARCHAR(256),
 Form NVARCHAR(256),
 )
 
