@@ -13,23 +13,23 @@ public class ExamRoomController {
     @Autowired
     private ExamRoomService examRoomService;
 
-    @GetMapping("/listExamRoom")
+    @GetMapping("/list")
     public List<ExamRoom> getListExamRoom(){
         return examRoomService.getListRoom();
     }
 
-    @PostMapping("/createExamRoom")
+    @PostMapping("/create")
     public String createExamRoom(@RequestBody ExamRoom examRoom) {
         return examRoomService.creatExamRoom(examRoom) + " Created Exam Room";
     }
 
-    @PutMapping("/updateExamRoom/{id}")
+    @PutMapping("/update/{id}")
     public String updateExamRoom(@PathVariable("id") long id, @RequestBody ExamRoom examRoom) {
         return examRoomService.updateExamRoom(id, examRoom) + " Updated Exam Room";
     }
 
 
-    @DeleteMapping("/deleteExamRoom/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteExamRoom(@PathVariable(name = "id",required = true)  long id) {
         return examRoomService.deleteExamRoom(id) + " Detele Successful Exam Room";
     }

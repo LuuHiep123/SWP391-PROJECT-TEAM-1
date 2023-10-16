@@ -14,25 +14,33 @@ public class AccountController {
     private AccountService accountDAO;
 
 
-    @GetMapping("/getListAccount")
+    @GetMapping("/list")
     public List<Account> getListAccount() {
         return accountDAO.getAllAccount();
     }
-    @GetMapping("/getAccount/{Account_ID}")
-    public Account getAccount(@PathVariable String Account_ID) {
-        return accountDAO.getAAccount(Account_ID);
+
+    @GetMapping("/get/{id}")
+    public Account getAccount(@PathVariable String id) {
+        return accountDAO.getAAccount(id);
     }
-    @PutMapping("/updateAccount/{Accout_ID}")
-    public String updateAccount(@RequestBody Account account, @PathVariable String Accout_ID) {
-        return accountDAO.updateAccount(account,Accout_ID)+ " Update Account Successful";
+
+    @PutMapping("/update/{id}")
+    public String updateAccount(@RequestBody Account account, @PathVariable String id) {
+        return accountDAO.updateAccount(account, id) + " Update Account Successful";
     }
-    @PostMapping("/createAccount")
+
+    @PostMapping("/create")
     public String createAccount(@RequestBody Account account) {
         return accountDAO.createAccount(account) + " Create Account Successful";
     }
-    @DeleteMapping("/deleteAccount/{Accout_ID}")
-    public String deleleAccount(@PathVariable String Account_ID){
-        return accountDAO.deleteAccount(Account_ID)+ " Delete Account Successfull";
+
+    @DeleteMapping("/delete/{id}")
+    public String deleleAccount(@PathVariable String id) {
+        return accountDAO.deleteAccount(id) + " Delete Account Successfull";
     }
 
+    @GetMapping("/getRoleName/{id}")
+    public String getRoleName(@PathVariable String id) {
+        return "" + accountDAO.getRole(id);
+    }
 }

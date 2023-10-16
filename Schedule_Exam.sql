@@ -106,6 +106,7 @@ INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRN221',
 
 
 SELECT * FROM [Account]
+SELECT * FROM [Subject]
 DECLARE @AccountID INT = 160000
 
 WHILE @AccountID <= 179999

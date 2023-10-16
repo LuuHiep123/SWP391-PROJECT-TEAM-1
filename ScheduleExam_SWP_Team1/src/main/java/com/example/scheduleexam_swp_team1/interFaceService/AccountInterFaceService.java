@@ -15,5 +15,6 @@ public interface AccountInterFaceService {
     public int deleteAccount(String Account_ID);
     // updete account
     public int updateAccount(Account account, String Account_ID);
-
+    // ham get roleName
+    public Account getRole(String Account_ID);
 }

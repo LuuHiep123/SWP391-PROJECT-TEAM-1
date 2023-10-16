@@ -51,6 +51,11 @@ public class AccountService implements AccountInterFaceService {
         });
     }
 
+    @Override
+    public Account getRole(String Account_ID) {
+        return jdbcTemplate.queryForObject("SELECT rolename FROM account WHERE account_id = ?", new BeanPropertyRowMapper<Account>(Account.class),Account_ID);
+    }
+
 
     @Override
     public int createAccount(Account account) {
