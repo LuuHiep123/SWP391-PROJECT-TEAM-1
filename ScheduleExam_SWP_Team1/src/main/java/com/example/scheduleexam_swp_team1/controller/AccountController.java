@@ -24,7 +24,7 @@ public class AccountController {
         return accountDAO.getAAccount(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PatchMapping("/update/{id}")
     public String updateAccount(@RequestBody Account account, @PathVariable String id) {
         return accountDAO.updateAccount(account, id) + " Update Account Successful";
     }
