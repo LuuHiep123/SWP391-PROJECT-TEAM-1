@@ -5,21 +5,21 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "examroom")
-public class ExamRoom {
+@Table(name = "Room")
+public class Room {
     @Id
     @GeneratedValue()
-    @Column(name = "room_id")
+    @Column(name = "Room_ID")
     private long id;
-    @Column(name = "roomname")
+    @Column(name = "NumRoom")
     private String roomname;
-    @Column(name = "place")
+    @Column(name = "Campus")
     private boolean place;
 
-    public ExamRoom() {
+    public Room() {
     }
 
-    public ExamRoom(long id, String roomname, boolean place) {
+    public Room(long id, String roomname, boolean place) {
         this.id = id;
         this.roomname = roomname;
         this.place = place;
