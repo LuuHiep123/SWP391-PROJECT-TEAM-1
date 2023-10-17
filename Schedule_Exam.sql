@@ -45,10 +45,9 @@ Room_ID NVARCHAR(256) FOREIGN KEY REFERENCES Room(Room_ID),
 
 CREATE TABLE [Semester](
 SE_ID NVARCHAR(256) PRIMARY KEY NOT NULL,
-[Time] TIME(7),
-[Day] DATE,
-Slot bit,
-Place bit,
+StartDate DATE,
+EndDate DATE,
+NumDay INTEGER,
 )
 
 CREATE TABLE [Subject](
