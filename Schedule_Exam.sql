@@ -2,6 +2,7 @@ USE [master]
 GO
 hihi
     doots
+	oke man
 DROP DATABASE ScheduleExam
 GO
 
