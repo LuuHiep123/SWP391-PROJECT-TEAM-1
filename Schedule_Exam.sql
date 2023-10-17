@@ -1,6 +1,6 @@
 USE [master]
 GO
-
+hihi
 DROP DATABASE ScheduleExam
 GO
 
