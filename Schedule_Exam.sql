@@ -1,6 +1,7 @@
 USE [master]
 GO
 hihi
+    doots
 DROP DATABASE ScheduleExam
 GO
 
