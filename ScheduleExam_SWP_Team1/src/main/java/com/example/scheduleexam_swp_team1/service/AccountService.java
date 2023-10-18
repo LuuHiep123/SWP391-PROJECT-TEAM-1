@@ -9,7 +9,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+
 import java.util.List;
+import java.util.Random;
 
 @CrossOrigin(origins = "*")
 @Service
@@ -25,8 +27,8 @@ public class AccountService implements AccountInterFaceService {
     }
 
     @Override
-    public Account getAAccount(String Account_ID) {
-        return jdbcTemplate.queryForObject("SELECT * FROM [scheduleExam].[dbo].[account] WHERE account_id = ?", new BeanPropertyRowMapper<Account>(Account.class), Account_ID);
+    public Account getAAccount(String Email) {
+        return jdbcTemplate.queryForObject("SELECT * FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), Email);
     }
 
     @Override
@@ -35,19 +37,18 @@ public class AccountService implements AccountInterFaceService {
     }
 
     @Override
-    public int updateAccount(Account account, String accountID) {
-        String sql = "UPDATE account " +
-                "SET name = ?, address = ?, dob = ?, gender = ?, rolename = ?, email = ? " +
-                "WHERE account_id = ?";
+    public int updateAccount(Account account, String Email) {
+        String sql = "UPDATE Account " +
+                "SET Name = ?, Address = ?, DOB = ?, Gender = ?, Password = ? " +
+                "WHERE Email = ?";
 
         return jdbcTemplate.update(sql, new Object[] {
                 account.getName(),    // String
                 account.getAddress(), // String
                 account.getDOB(),     // Date or appropriate date type
                 account.isGender(),  // String or appropriate gender type
-                account.getRolename(), // String
-                account.getEmail(),    // String
-                accountID             // String or appropriate ID type
+                account.getPassword(),    // String// String or appropriate ID type
+                Email
         });
     }
 
@@ -56,22 +57,44 @@ public class AccountService implements AccountInterFaceService {
         return jdbcTemplate.queryForObject("SELECT rolename FROM account WHERE account_id = ?", new BeanPropertyRowMapper<Account>(Account.class),Account_ID);
     }
 
+    @Override
+    public Account CheckExits(String Email) {
+        return jdbcTemplate.queryForObject("SELECT * FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), Email);
+    }
+
 
     @Override
-    public int createAccount(Account account) {
-        return jdbcTemplate.update("INSERT INTO account (account_id, address, dob, gender, img, name, rolename, email)\n" +
-                        "VALUES (?, ?, ?, ?, CONVERT(varbinary(max), ?), ?, ?, ?)",
-                new Object[]{
-                        account.getAccount_ID(),
-                        account.getAddress(),
-                        account.getDOB(),
-                        account.isGender(),
-                        account.getIMG().getBytes(), // Assuming getIMG() returns a String
-                        account.getName(),
-                        account.getRolename(),
-                        account.getEmail()
-                }
-        );
+    public Account createAccount(Account account) {
+        if(CheckExits(account.getEmail()) == null){
+            //Random Password
+            int length = 5;
+            String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            Random random = new Random();
+            StringBuilder randomString = new StringBuilder();
+            for (int i = 0; i < length; i++) {
+                int index = random.nextInt(characters.length());
+                char randomChar = characters.charAt(index);
+                randomString.append(randomChar);
+            }
+            String Password = String.valueOf(randomString);
+
+            jdbcTemplate.update("INSERT INTO account (Email,Password, address, dob, gender, img, name, rolename, email)\n" +
+                            "VALUES (?, ?, ?, ?, CONVERT(varbinary(max), ?), ?, ?, ?)",
+                    new Object[]{
+                            account.getEmail(),
+                            Password,
+                            account.getAddress(),
+                            account.getDOB(),
+                            account.isGender(),
+                            account.getIMG().getBytes(), // Assuming getIMG() returns a String
+                            account.getName(),
+                            account.getRolename(),
+                            account.getEmail()
+                    }
+            );
+            return jdbcTemplate.queryForObject("SELECT * FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), account.getEmail());
+        }
+        return null;
     }
 
 }

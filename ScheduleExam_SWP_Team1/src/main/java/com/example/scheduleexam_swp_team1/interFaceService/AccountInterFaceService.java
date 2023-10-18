@@ -10,11 +10,14 @@ public interface AccountInterFaceService {
     //get 1 Account
     public Account getAAccount(String Account_ID);
     //create Account
-    public int createAccount(Account account);
+    public Account createAccount(Account account);
     // detete Account
     public int deleteAccount(String Account_ID);
     // updete account
     public int updateAccount(Account account, String Account_ID);
     // ham get roleName
     public Account getRole(String Account_ID);
+    public Account CheckExits(String Email);
+
+
 }

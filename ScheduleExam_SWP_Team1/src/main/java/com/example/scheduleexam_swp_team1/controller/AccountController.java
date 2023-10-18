@@ -19,19 +19,22 @@ public class AccountController {
         return accountDAO.getAllAccount();
     }
 
-    @GetMapping("/get/{id}")
-    public Account getAccount(@PathVariable String id) {
-        return accountDAO.getAAccount(id);
+    @GetMapping("/get/{Email}")
+    public Account getAccount(@PathVariable String Email) {
+        return accountDAO.getAAccount(Email);
     }
 
-    @PatchMapping("/update/{id}")
-    public String updateAccount(@RequestBody Account account, @PathVariable String id) {
-        return accountDAO.updateAccount(account, id) + " Update Account Successful";
+    @PatchMapping("/update/{Email}")
+    public String updateAccount(@RequestBody Account account, @PathVariable String Email) {
+        return accountDAO.updateAccount(account, Email) + " Update Account Successful";
     }
 
     @PostMapping("/create")
-    public String createAccount(@RequestBody Account account) {
-        return accountDAO.createAccount(account) + " Create Account Successful";
+    public Account createAccount(@RequestBody Account account) {
+        if(accountDAO.createAccount(account) == null){
+            return null;
+        }
+        return accountDAO.createAccount(account);
     }
 
     @DeleteMapping("/delete/{id}")
