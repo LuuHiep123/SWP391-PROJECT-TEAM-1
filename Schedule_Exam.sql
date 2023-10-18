@@ -45,9 +45,9 @@ Room_ID NVARCHAR(256) FOREIGN KEY REFERENCES Room(Room_ID),
 
 CREATE TABLE [Semester](
 SE_ID NVARCHAR(256) PRIMARY KEY NOT NULL,
+SE_Name NVARCHAR(256),
 StartDate DATE,
 EndDate DATE,
-NumDay INTEGER,
 )
 
 CREATE TABLE [Subject](
@@ -68,7 +68,6 @@ Slot_ID NVARCHAR(256) PRIMARY KEY NOT NULL,
 Slot_Name NVARCHAR(256),
 Start_Time TIME(7),
 End_Time TIME(7),
-[Time] TIME(7),
 )
 
 CREATE TABLE [Student_Exam_Schedule](
@@ -103,18 +102,36 @@ Slot_ID NVARCHAR(256) FOREIGN KEY REFERENCES [Slot](Slot_ID),
 regulations NVARCHAR(256),
 )
 
--- ADD DATA INTO TABLE SUBJECT
+-- ADD DATA INTO TABLE Subject
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRF192','Programming Fundamentals','123456/789123','EOS,PEA')
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('MAE101','Mathematics for Engineering','712342','EOS')
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('CEA201','Computer Organization and Architecture','817234','EOS')
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRO192','Object-Oriented Programming','812784/912834','EOS,PEA')
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRN221','Advanced Cross-Platform Application Programming With .NET','178234/938454','EOS,PEA')
 
+-- ADD DATA INTO TABLE Room
+INSERT INTO [Room](Room_ID,NumRoom,Campus) VALUES ('1','101','HCM')
+INSERT INTO [Room] (Room_ID,NumRoom,Campus) VALUES ('2','102','HCM')
+INSERT INTO [Room] (Room_ID,NumRoom,Campus) VALUES ('3','103','HCM')
+INSERT INTO [Room] (Room_ID,NumRoom,Campus) VALUES ('4','104','HCM')
+INSERT INTO [Room] (Room_ID,NumRoom,Campus) VALUES ('5','105','HCM')
 
-SELECT * FROM [Account]
-SELECT * FROM [Subject]
+-- ADD DATA INTO TABLE Semester
+INSERT INTO [Semester](SE_ID,SE_Name,StartDate,EndDate) VALUES ('1','Spring22','2022-01-01','2022-05-01')
+INSERT INTO [Semester](SE_ID,SE_Name,StartDate,EndDate) VALUES ('2','Summer22','2022-05-01','2022-09-01')
+INSERT INTO [Semester](SE_ID,SE_Name,StartDate,EndDate) VALUES ('3','Fall22','2022-09-01','2022-12-31')
+
+-- ADD DATA INTO TABLE Slot
+INSERT INTO [Slot](Slot_ID,Slot_Name,Start_Time,End_Time) VALUES ('1','Slot_1','07:00:00','09:15:00')
+INSERT INTO [Slot](Slot_ID,Slot_Name,Start_Time,End_Time) VALUES ('2','Slot_2','09:30:00','11:45:00')
+INSERT INTO [Slot](Slot_ID,Slot_Name,Start_Time,End_Time) VALUES ('3','Slot_3','12:30:00','14:45:00')
+INSERT INTO [Slot](Slot_ID,Slot_Name,Start_Time,End_Time) VALUES ('4','Slot_4','15:00:00','17:15:00')
+
+-- ADD DATA INTO TABLE Student_Exam_Schedule
+INSERT INTO [Student_Exam_Schedule](Email,SE_ID,Subject_ID,Room_ID,Slot_ID,regulations) VALUES ('user160000@fpt.edu.vn','2','CEA201','1','3','do not use GG')
+
+-- ADD DATA INTO TABLE Account
 DECLARE @AccountID INT = 160000
-
 WHILE @AccountID <= 179999
 BEGIN
     DECLARE @Email NVARCHAR(255) = 'user' + CAST(@AccountID AS NVARCHAR(10)) + '@fpt.edu.vn'
@@ -125,6 +142,3 @@ BEGIN
     
     SET @AccountID = @AccountID + 1
 END
-UPDATE [Account]
-SET Email = REPLACE(Email, '@fpt.edu.vn', '@fe.edu.vn')
-WHERE Email IN ('userxxxx1@fpt.edu.vn', 'userxxxx2@fpt.edu.vn', 'userxxxx3@fpt.edu.vn', 'userxxxx4@fpt.edu.vn', 'userxxxx5@fpt.edu.vn', 'userxxxx6@fpt.edu.vn', 'userxxxx7@fpt.edu.vn', 'userxxxx8@fpt.edu.vn', 'userxxxx9@fpt.edu.vn');
