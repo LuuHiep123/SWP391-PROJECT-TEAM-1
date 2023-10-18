@@ -18,6 +18,6 @@ public class Subject {
     @Column(name = "Exam_Code")
     private String exam_Code;
     @Column(name = "Form")
-    private String form;
+    private int form;
 
 }
