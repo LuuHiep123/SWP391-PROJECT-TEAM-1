@@ -11,7 +11,7 @@ GO
 
 CREATE TABLE [Account](
 Email NVARCHAR(256) PRIMARY KEY NOT NULL,
-Account_ID VARCHAR(256),
+[Password] VARCHAR(256),
 [Name] NVARCHAR(256),
 Gender NVARCHAR(256),
 [Address] NVARCHAR(256),
@@ -102,6 +102,10 @@ Slot_ID NVARCHAR(256) FOREIGN KEY REFERENCES [Slot](Slot_ID),
 regulations NVARCHAR(256),
 )
 
+-- ADD DATA INTO TABLE Account
+INSERT INTO [Account] (Email,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hieplxse160641@fpt.edu.vn','123123','LuuHiep','Male','186 le van viet','2002-09-16',null,'student')
+INSERT INTO [Account] (Email,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hoangnqse160625@fpt.edu.vn','123456','QuocHoang','Male','Do Xuan Hop','2002-10-02',null,'student')
+
 -- ADD DATA INTO TABLE Subject
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRF192','Programming Fundamentals','123456/789123','EOS,PEA')
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('MAE101','Mathematics for Engineering','712342','EOS')
@@ -128,17 +132,6 @@ INSERT INTO [Slot](Slot_ID,Slot_Name,Start_Time,End_Time) VALUES ('3','Slot_3','
 INSERT INTO [Slot](Slot_ID,Slot_Name,Start_Time,End_Time) VALUES ('4','Slot_4','15:00:00','17:15:00')
 
 -- ADD DATA INTO TABLE Student_Exam_Schedule
-INSERT INTO [Student_Exam_Schedule](Email,SE_ID,Subject_ID,Room_ID,Slot_ID,regulations) VALUES ('user160000@fpt.edu.vn','2','CEA201','1','3','do not use GG')
+INSERT INTO [Student_Exam_Schedule](Email,SE_ID,Subject_ID,Room_ID,Slot_ID,regulations) VALUES ('hieplxse160641@fpt.edu.vn','2','CEA201','1','3','do not use GG')
+INSERT INTO [Student_Exam_Schedule](Email,SE_ID,Subject_ID,Room_ID,Slot_ID,regulations) VALUES ('hoangnqse160625@fpt.edu.vn','2','PRO192','2','1','do not use GG')
 
--- ADD DATA INTO TABLE Account
-DECLARE @AccountID INT = 160000
-WHILE @AccountID <= 179999
-BEGIN
-    DECLARE @Email NVARCHAR(255) = 'user' + CAST(@AccountID AS NVARCHAR(10)) + '@fpt.edu.vn'
-    
-    INSERT INTO [Account] (Email, Account_ID, [Name], Gender, [Address], DOB, IMG, RoleName)
-    VALUES
-    (@Email, @AccountID, 'User ' + CAST(@AccountID AS NVARCHAR(10)), 'Male', 'Q' + CAST(@AccountID AS NVARCHAR(10)), '2000-01-01', 0x0123456789ABCDEF, 'Student')
-    
-    SET @AccountID = @AccountID + 1
-END
