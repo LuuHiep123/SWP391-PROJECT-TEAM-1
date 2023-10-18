@@ -1,11 +1,11 @@
 diff a/Schedule_Exam.sql b/Schedule_Exam.sql	(rejected hunks)
-@@ -54,8 +54,7 @@
- CREATE TABLE [Subject](
- Subject_ID NVARCHAR(256) PRIMARY KEY NOT NULL,
- Subject_Name NVARCHAR(256),
--Grace NVARCHAR(256),
--Decription NVARCHAR(256),
-+Exam_Code NVARCHAR(256),
- Form NVARCHAR(256),
- )
+@@ -1,8 +1,6 @@
+ USE [master]
+ GO
+-hihi
+-    doots
+-	oke man
++
+ DROP DATABASE ScheduleExam
+ GO
  
