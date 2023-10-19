@@ -11,6 +11,7 @@ GO
 
 CREATE TABLE [Account](
 Email NVARCHAR(256) PRIMARY KEY NOT NULL,
+Account_ID NVARCHAR(256),
 [Password] VARCHAR(256),
 [Name] NVARCHAR(256),
 Gender NVARCHAR(256),
@@ -103,8 +104,8 @@ regulations NVARCHAR(256),
 )
 
 -- ADD DATA INTO TABLE Account
-INSERT INTO [Account] (Email,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hieplxse160641@fpt.edu.vn','123123','LuuHiep','Male','186 le van viet','2002-09-16',null,'student')
-INSERT INTO [Account] (Email,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hoangnqse160625@fpt.edu.vn','123456','QuocHoang','Male','Do Xuan Hop','2002-10-02',null,'student')
+INSERT INTO [Account] (Email,Account_ID,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hieplxse160641@fpt.edu.vn','SE160641','123123','LuuHiep','Male','186 le van viet','2002-09-16',null,'student')
+INSERT INTO [Account] (Email,Account_ID,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hoangnqse160625@fpt.edu.vn','SE160625','123456','QuocHoang','Male','Do Xuan Hop','2002-10-02',null,'student')
 
 -- ADD DATA INTO TABLE Subject
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRF192','Programming Fundamentals','123456/789123','EOS,PEA')
