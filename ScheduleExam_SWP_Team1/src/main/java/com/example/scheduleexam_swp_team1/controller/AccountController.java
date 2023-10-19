@@ -24,9 +24,9 @@ public class AccountController {
         return accountDAO.getAAccount(Email);
     }
 
-    @PatchMapping("/update/{Email}")
-    public String updateAccount(@RequestBody Account account, @PathVariable String Email) {
-        return accountDAO.updateAccount(account, Email) + " Update Account Successful";
+    @PatchMapping("/update")
+    public String updateAccount(@RequestBody Account account) throws ExceptionInInitializerError {
+        return accountDAO.updateAccount(account) + " Update Account Successful";
     }
 
     @PostMapping("/create")

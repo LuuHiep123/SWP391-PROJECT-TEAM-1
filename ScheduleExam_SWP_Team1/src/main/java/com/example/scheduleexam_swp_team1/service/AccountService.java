@@ -23,38 +23,60 @@ public class AccountService implements AccountInterFaceService {
 
     @Override
     public List<Account> getAllAccount() {
-        return jdbcTemplate.query("SELECT * FROM [scheduleExam].[dbo].[account]", new BeanPropertyRowMapper<Account>(Account.class));
+        return jdbcTemplate.query("SELECT [Email],[Name][Gender],[Address],[RoleName],Name,gender  FROM [scheduleExam].[dbo].[account]", new BeanPropertyRowMapper<Account>(Account.class));
     }
 
     @Override
     public Account getAAccount(String Email) {
-        return jdbcTemplate.queryForObject("SELECT * FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), Email);
+        try {
+            return jdbcTemplate.queryForObject("SELECT * FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), Email);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
     public int deleteAccount(String Account_ID) {
-        return jdbcTemplate.update("DELETE FROM [account] WHERE account_id = ? ",Account_ID);
+        try {
+            return jdbcTemplate.update("DELETE FROM [account] WHERE account_id = ? ", Account_ID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Override
-    public int updateAccount(Account account, String Email) {
-        String sql = "UPDATE Account " +
-                "SET Name = ?, Address = ?, DOB = ?, Gender = ?, Password = ? " +
-                "WHERE Email = ?";
+    public int updateAccount(Account account) {
+        try {
+            String sql = "UPDATE Account " +
+                    "SET Name = ?, Address = ?, Password = ? " +
+                    "WHERE Email = ?";
 
-        return jdbcTemplate.update(sql, new Object[] {
-                account.getName(),    // String
-                account.getAddress(), // String
-                account.getDOB(),     // Date or appropriate date type
-                account.isGender(),  // String or appropriate gender type
-                account.getPassword(),    // String// String or appropriate ID type
-                Email
-        });
+            return jdbcTemplate.update(sql, new Object[]{
+                    account.getName(),    // String
+                    account.getAddress(), // String
+                    account.getDOB(),     // Date or appropriate date type
+                    account.isGender(),  // String or appropriate gender type
+                    account.getPassword(),    // String// String or appropriate ID type
+                    account.getEmail()
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     @Override
     public Account getRole(String Account_ID) {
-        return jdbcTemplate.queryForObject("SELECT rolename FROM account WHERE account_id = ?", new BeanPropertyRowMapper<Account>(Account.class),Account_ID);
+        try {
+            return jdbcTemplate.queryForObject("SELECT rolename FROM account WHERE account_id = ?", new BeanPropertyRowMapper<Account>(Account.class), Account_ID);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override
@@ -65,7 +87,7 @@ public class AccountService implements AccountInterFaceService {
 
     @Override
     public Account createAccount(Account account) {
-        if(CheckExits(account.getEmail()) == null){
+        if (CheckExits(account.getEmail()) == null) {
             //Random Password
             int length = 5;
             String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
