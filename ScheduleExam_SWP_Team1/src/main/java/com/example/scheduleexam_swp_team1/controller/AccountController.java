@@ -34,16 +34,24 @@ public class AccountController {
     }
 
     @PostMapping("/create")
-    public Account createAccount(@RequestBody Account account) {
-        if (accountDAO.createAccount(account) == null) {
-            return null;
+    public String createAccount(@RequestBody Account account) {
+        Account temp = null;
+        temp = accountDAO.createAccount(account);
+        if (temp == null) {
+            return "Email already exists";
+        }else{
+            return "create Account successful!" + "\n" + "Email: " + temp.getEmail() + "\n" + "Password: " + temp.getPassword();
         }
-        return accountDAO.createAccount(account);
     }
 
-    @DeleteMapping("/delete/{id}")
-    public String deleleAccount(@PathVariable String id) {
-        return accountDAO.deleteAccount(id) + " Delete Account Successfull";
+    @DeleteMapping("/delete/{Email}")
+    public String deleleAccount(@PathVariable String Email) {
+        int check = accountDAO.deleteAccount(Email);
+        if(check == 0){
+            return "account does not exist!";
+        }else {
+            return "Delete" + " " + check + " " + "rows" + " " + "successfull!";
+        }
     }
 
     @GetMapping("/getRoleName/{id}")

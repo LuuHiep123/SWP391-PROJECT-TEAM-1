@@ -38,13 +38,14 @@ public class AccountService implements AccountInterFaceService {
     }
 
     @Override
-    public int deleteAccount(String Account_ID) {
+    public int deleteAccount(String Email) {
+        int check = 0;
         try {
-            return jdbcTemplate.update("DELETE FROM [account] WHERE account_id = ? ", Account_ID);
+            check = jdbcTemplate.update("DELETE FROM [account] WHERE Email = ? ", Email);
         } catch (Exception e) {
-            e.printStackTrace();
+            return check;
         }
-        return 0;
+        return check;
     }
 
     @Override
@@ -78,42 +79,53 @@ public class AccountService implements AccountInterFaceService {
     }
 
     @Override
-    public Account CheckExits(String Email) {
-        return jdbcTemplate.queryForObject("SELECT * FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), Email);
+    public int CheckExits(String Email) {
+        int temp = 0;
+        try {
+            temp = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM [scheduleExam].[dbo].[account] WHERE Email = ?", Integer.class, Email);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return temp;
     }
 
 
     @Override
     public Account createAccount(Account account) {
-        if (CheckExits(account.getEmail()) == null) {
-            //Random Password
-            int length = 5;
-            String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            Random random = new Random();
-            StringBuilder randomString = new StringBuilder();
-            for (int i = 0; i < length; i++) {
-                int index = random.nextInt(characters.length());
-                char randomChar = characters.charAt(index);
-                randomString.append(randomChar);
-            }
-            String Password = String.valueOf(randomString);
+        try {
+            if (CheckExits(account.getEmail()) == 0) {
+                //Random Password
+                int length = 5;
+                String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+                Random random = new Random();
+                StringBuilder randomString = new StringBuilder();
+                for (int i = 0; i < length; i++) {
+                    int index = random.nextInt(characters.length());
+                    char randomChar = characters.charAt(index);
+                    randomString.append(randomChar);
+                }
+                String Password = String.valueOf(randomString);
 
-            jdbcTemplate.update("INSERT INTO account (Email,Password, address, dob, gender, img, name, rolename, email)\n" +
-                            "VALUES (?, ?, ?, ?, CONVERT(varbinary(max), ?), ?, ?, ?)",
-                    new Object[]{
-                            account.getEmail(),
-                            Password,
-                            account.getAddress(),
-                            account.getDOB(),
-                            account.getGender(),
-                            account.getIMG().getBytes(), // Assuming getIMG() returns a String
-                            account.getName(),
-                            account.getRolename(),
-                            account.getEmail()
-                    }
-            );
-            return jdbcTemplate.queryForObject("SELECT * FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), account.getEmail());
+                jdbcTemplate.update("INSERT INTO account (Email, Account_ID, Password, address, dob, gender, img, name, rolename)\n" +
+                                "VALUES (?, ?, ?, ?, ?, ?, CONVERT(varbinary(max), ?), ?, ?)",
+                        new Object[]{
+                                account.getEmail(),
+                                account.getAccount_ID(),
+                                Password,
+                                account.getAddress(),
+                                account.getDOB(),
+                                account.getGender(),
+                                account.getIMG(), // Assuming getIMG() returns a String
+                                account.getName(),
+                                account.getRolename(),
+                        }
+                );
+                return jdbcTemplate.queryForObject("SELECT Email,Password FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), account.getEmail());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
         return null;
     }
 

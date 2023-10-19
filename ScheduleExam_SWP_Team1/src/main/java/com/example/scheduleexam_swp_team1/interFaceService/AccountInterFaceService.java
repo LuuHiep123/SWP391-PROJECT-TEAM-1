@@ -17,7 +17,7 @@ public interface AccountInterFaceService {
     public int updateAccount(Account account, String email);
     // ham get roleName
     public Account getRole(String Account_ID);
-    public Account CheckExits(String Email);
+    public int CheckExits(String Email);
 
 
 }
