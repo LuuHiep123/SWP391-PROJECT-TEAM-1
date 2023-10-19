@@ -23,7 +23,7 @@ public class AccountService implements AccountInterFaceService {
 
     @Override
     public List<Account> getAllAccount() {
-        return jdbcTemplate.query("SELECT [Email],[Name][Gender],[Address],[RoleName],Name,gender  FROM [scheduleExam].[dbo].[account]", new BeanPropertyRowMapper<Account>(Account.class));
+        return jdbcTemplate.query("SELECT * FROM [scheduleExam].[dbo].[account]", new BeanPropertyRowMapper<Account>(Account.class));
     }
 
     @Override
@@ -56,7 +56,7 @@ public class AccountService implements AccountInterFaceService {
                     account.getName(),    // String
                     account.getAddress(), // String
                     account.getDOB(),     // Date or appropriate date type
-                    account.isGender(),  // String or appropriate gender type
+                    account.getGender(),  // String or appropriate gender type
                     account.getPassword(),    // String// String or appropriate ID type
                     account.getEmail()
             });
@@ -105,7 +105,7 @@ public class AccountService implements AccountInterFaceService {
                             Password,
                             account.getAddress(),
                             account.getDOB(),
-                            account.isGender(),
+                            account.getGender(),
                             account.getIMG().getBytes(), // Assuming getIMG() returns a String
                             account.getName(),
                             account.getRolename(),

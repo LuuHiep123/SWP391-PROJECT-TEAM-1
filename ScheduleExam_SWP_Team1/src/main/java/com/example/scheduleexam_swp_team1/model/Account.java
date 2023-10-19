@@ -17,12 +17,14 @@ public class Account {
     @Id
     @Column(name = "Email")
     private String Email;
+    @Column(name = "Account_ID")
+    private String Account_ID;
     @Column(name = "Password")
     private String Password;
     @Column(name = "Name")
     private String Name;
     @Column(name = "Gender")
-    private boolean Gender;
+    private String Gender;
     @Column(name = "Address")
     private String Address;
     @Column(name = "DOB")
@@ -35,8 +37,9 @@ public class Account {
     public Account() {
     }
 
-    public Account(String email, String password, String name, boolean gender, String address, Date DOB, String IMG, String rolename) {
+    public Account(String email, String account_ID, String password, String name, String gender, String address, Date DOB, String IMG, String rolename) {
         Email = email;
+        Account_ID = account_ID;
         Password = password;
         Name = name;
         Gender = gender;
