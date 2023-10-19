@@ -24,18 +24,18 @@ public class AccountController {
         return accountDAO.getAAccount(Email);
     }
 
-    @PatchMapping("/update")
-    public String updateAccount(@RequestBody Account account) throws ExceptionInInitializerError {
-        if(accountDAO.updateAccount(account) == 0 ){
+    @PutMapping("/update/{email}")
+    public String updateAccount(@RequestBody Account account, @PathVariable String email) {
+        if (accountDAO.updateAccount(account, email) == 0) {
             return "Update unsuccessfull!";
-        }else{
+        } else {
             return " Update Account Successful";
         }
     }
 
     @PostMapping("/create")
     public Account createAccount(@RequestBody Account account) {
-        if(accountDAO.createAccount(account) == null){
+        if (accountDAO.createAccount(account) == null) {
             return null;
         }
         return accountDAO.createAccount(account);

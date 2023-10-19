@@ -14,7 +14,7 @@ public interface AccountInterFaceService {
     // detete Account
     public int deleteAccount(String Account_ID);
     // updete account
-    public int updateAccount(Account account);
+    public int updateAccount(Account account, String email);
     // ham get roleName
     public Account getRole(String Account_ID);
     public Account CheckExits(String Email);
