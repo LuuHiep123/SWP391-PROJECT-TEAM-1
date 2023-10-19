@@ -48,7 +48,7 @@ public class AccountService implements AccountInterFaceService {
     }
 
     @Override
-    public int updateAccount(Account account) {
+    public int updateAccount(Account account, String email) {
         try {
             String sql = "UPDATE Account SET Name = ?, Address = ?,DOB = ?,Gender = ?, Password = ? WHERE Email = ?";
 
@@ -58,7 +58,7 @@ public class AccountService implements AccountInterFaceService {
                     account.getDOB(),     // Date or appropriate date type
                     account.isGender(),  // String or appropriate gender type
                     account.getPassword(),    // String// String or appropriate ID type
-                    account.getEmail()
+                    email
             });
         } catch (Exception e) {
             e.printStackTrace();
