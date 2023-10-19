@@ -26,7 +26,11 @@ public class AccountController {
 
     @PatchMapping("/update")
     public String updateAccount(@RequestBody Account account) throws ExceptionInInitializerError {
-        return accountDAO.updateAccount(account) + " Update Account Successful";
+        if(accountDAO.updateAccount(account) == 0 ){
+            return "Update unsuccessfull!";
+        }else{
+            return " Update Account Successful";
+        }
     }
 
     @PostMapping("/create")

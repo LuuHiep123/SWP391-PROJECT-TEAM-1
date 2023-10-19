@@ -50,9 +50,7 @@ public class AccountService implements AccountInterFaceService {
     @Override
     public int updateAccount(Account account) {
         try {
-            String sql = "UPDATE Account " +
-                    "SET Name = ?, Address = ?, Password = ? " +
-                    "WHERE Email = ?";
+            String sql = "UPDATE Account SET Name = ?, Address = ?,DOB = ?,Gender = ?, Password = ? WHERE Email = ?";
 
             return jdbcTemplate.update(sql, new Object[]{
                     account.getName(),    // String
