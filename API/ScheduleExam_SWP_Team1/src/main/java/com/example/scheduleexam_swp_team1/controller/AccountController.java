@@ -3,9 +3,11 @@ package com.example.scheduleexam_swp_team1.controller;
 import com.example.scheduleexam_swp_team1.model.Account;
 import com.example.scheduleexam_swp_team1.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/api/Account")
@@ -24,9 +26,9 @@ public class AccountController {
         return accountDAO.getAAccount(Email);
     }
 
-    @PutMapping("/update/{email}")
-    public String updateAccount(@RequestBody Account account, @PathVariable String email) {
-        if (accountDAO.updateAccount(account, email) == 0) {
+    @PostMapping("/update")
+    public String updateAccount(@RequestBody Account account) {
+        if (accountDAO.updateAccount(account, account.getEmail()) == 0) {
             return "Update unsuccessfull!";
         } else {
             return " Update Account Successful";
@@ -59,13 +61,27 @@ public class AccountController {
         return "" + accountDAO.getRole(id);
     }
 
-    @PutMapping("/LoginWithAccount")
-    public Account LoginAccount(String Email,String Password) {
+    @PostMapping("/LoginWithAccount")
+    public ResponseEntity<?> LoginAccount(@RequestBody Map<String, String> requestBody) {
+        String Email = requestBody.get("Email");
+        String Password = requestBody.get("Password");
         Account user = accountDAO.LoginWithAccount(Email, Password);
         if (user == null) {
-            return null;
+            String Message ="Incorect Email or Password";
+            return ResponseEntity.badRequest().body(Message);
         } else {
-            return user;
+            return ResponseEntity.ok(user);
+        }
+    }
+
+    @GetMapping("/LoginGoogle/{Email}")
+    public ResponseEntity<?> LoginGoogle(@PathVariable String Email) {
+        Account user = accountDAO.LoginGoogle(Email);
+        if (user == null) {
+            String Message ="Email is not registered";
+            return ResponseEntity.badRequest().body(Message);
+        } else {
+            return ResponseEntity.ok(user);
         }
     }
 }
