@@ -89,6 +89,16 @@ public class AccountService implements AccountInterFaceService {
         return temp;
     }
 
+    @Override
+    public Account LoginWithAccount(String Email, String password) {
+        try {
+                return jdbcTemplate.queryForObject("SELECT * FROM [scheduleExam].[dbo].[account] WHERE Email = ? AND Password = ?", new BeanPropertyRowMapper<Account>(Account.class), Email,password);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     @Override
     public Account createAccount(Account account) {

@@ -39,7 +39,7 @@ public class AccountController {
         temp = accountDAO.createAccount(account);
         if (temp == null) {
             return "Email already exists";
-        }else{
+        } else {
             return "create Account successful!" + "\n" + "Email: " + temp.getEmail() + "\n" + "Password: " + temp.getPassword();
         }
     }
@@ -47,9 +47,9 @@ public class AccountController {
     @DeleteMapping("/delete/{Email}")
     public String deleleAccount(@PathVariable String Email) {
         int check = accountDAO.deleteAccount(Email);
-        if(check == 0){
+        if (check == 0) {
             return "account does not exist!";
-        }else {
+        } else {
             return "Delete" + " " + check + " " + "rows" + " " + "successfull!";
         }
     }
@@ -57,6 +57,16 @@ public class AccountController {
     @GetMapping("/getRoleName/{id}")
     public String getRoleName(@PathVariable String id) {
         return "" + accountDAO.getRole(id);
+    }
+
+    @PutMapping("/LoginWithAccount")
+    public Account LoginAccount(String Email, String Password) {
+        Account user = accountDAO.LoginWithAccount(Email, Password);
+        if (user == null) {
+            return null;
+        } else {
+            return user;
+        }
     }
 }
     
