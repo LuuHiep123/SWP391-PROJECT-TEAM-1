@@ -18,7 +18,7 @@ public interface AccountInterFaceService {
     // ham get roleName
     public Account getRole(String Account_ID);
     public int CheckExits(String Email);
-    public Account LoginWithAccount(String Email, String password);
+    public Account LoginWithAccount(String Email,String Password);
 
 
 }

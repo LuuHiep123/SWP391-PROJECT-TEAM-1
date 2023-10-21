@@ -40,7 +40,7 @@ public class AccountController {
         if (temp == null) {
             return "Email already exists";
         } else {
-            return "create Account successful!" + "\n" + "Email: " + temp.getEmail() + "\n" + "Password: " + temp.getPassword();
+            return temp.getPassword();
         }
     }
 
@@ -60,7 +60,7 @@ public class AccountController {
     }
 
     @PutMapping("/LoginWithAccount")
-    public Account LoginAccount(String Email, String Password) {
+    public Account LoginAccount(String Email,String Password) {
         Account user = accountDAO.LoginWithAccount(Email, Password);
         if (user == null) {
             return null;
