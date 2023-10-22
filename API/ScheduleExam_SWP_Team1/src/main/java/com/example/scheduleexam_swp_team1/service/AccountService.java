@@ -89,6 +89,29 @@ public class AccountService implements AccountInterFaceService {
         return temp;
     }
 
+    @Override
+    public Account LoginWithAccount(String Email,String Password) {
+        try {
+            Account account = null;
+            account = jdbcTemplate.queryForObject("SELECT Email,Name,Address,DOB,Gender,RoleName,Account_ID FROM [scheduleExam].[dbo].[account] WHERE Email = ? AND Password = ?", new BeanPropertyRowMapper<Account>(Account.class), Email, Password);
+                return account;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @Override
+    public Account LoginGoogle(String Email) {
+        try {
+            Account account = null;
+            account = jdbcTemplate.queryForObject("SELECT Email,Name,Address,DOB,Gender,RoleName,Account_ID FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), Email);
+            return account;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     public Account createAccount(Account account) {
@@ -105,22 +128,27 @@ public class AccountService implements AccountInterFaceService {
                     randomString.append(randomChar);
                 }
                 String Password = String.valueOf(randomString);
+                Random randomnum = new Random();
 
-                jdbcTemplate.update("INSERT INTO account (Email, Account_ID, Password, address, dob, gender, img, name, rolename)\n" +
-                                "VALUES (?, ?, ?, ?, ?, ?, CONVERT(varbinary(max), ?), ?, ?)",
+                // Tạo một số ngẫu nhiên có 5 chữ số
+                int min = 10000;
+                int max = 99999;
+                int randomNumber = random.nextInt(max - min + 1) + min;
+                String Role = "Student";
+                jdbcTemplate.update("INSERT INTO account (Email, Account_ID, Password, address, dob, gender, name, rolename)\n" +
+                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
                         new Object[]{
                                 account.getEmail(),
-                                account.getAccount_ID(),
+                                randomNumber,
                                 Password,
                                 account.getAddress(),
                                 account.getDOB(),
                                 account.getGender(),
-                                account.getIMG(), // Assuming getIMG() returns a String
                                 account.getName(),
-                                account.getRolename(),
+                                Role
                         }
                 );
-                return jdbcTemplate.queryForObject("SELECT Email,Password FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), account.getEmail());
+                return jdbcTemplate.queryForObject("SELECT Password FROM [scheduleExam].[dbo].[account] WHERE Email = ?", new BeanPropertyRowMapper<Account>(Account.class), account.getEmail());
             }
         }catch (Exception e){
             e.printStackTrace();
