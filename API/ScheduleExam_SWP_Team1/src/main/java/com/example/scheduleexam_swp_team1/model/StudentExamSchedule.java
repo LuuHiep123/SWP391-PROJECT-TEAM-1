@@ -8,8 +8,9 @@ import lombok.Data;
 @Table(name = "Student_Exam_Schedule")
 public class StudentExamSchedule {
     @Id
-    private long id;
-    @OneToOne
+    private Long id;
+
+    @ManyToOne
     @JoinColumn(name = "Email", referencedColumnName = "email")
     private Account email;
 
@@ -19,17 +20,29 @@ public class StudentExamSchedule {
 
     @ManyToOne
     @JoinColumn(name = "Subject_ID", referencedColumnName = "Subject_ID")
-    private Subject Subject_ID;
+    private Subject subject;
 
     @ManyToOne
     @JoinColumn(name = "Room_ID", referencedColumnName = "Room_ID")
-    private Room Room_ID;
+    private Room room;
 
     @ManyToOne
     @JoinColumn(name = "Slot_ID", referencedColumnName = "Slot_ID")
-    private Slot Slot_ID;
+    private Slot slot;
 
     @Column(name = "regulations")
     private String regulations;
 
+    public StudentExamSchedule(Long id, Account email, Semester SE_ID, Subject subject, Room room, Slot slot, String regulations) {
+        this.id = id;
+        this.email = email;
+        this.SE_ID = SE_ID;
+        this.subject = subject;
+        this.room = room;
+        this.slot = slot;
+        this.regulations = regulations;
+    }
+
+    public StudentExamSchedule() {
+    }
 }
