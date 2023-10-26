@@ -2,6 +2,8 @@ package com.example.scheduleexam_swp_team1.controller;
 
 import com.example.scheduleexam_swp_team1.model.Account;
 import com.example.scheduleexam_swp_team1.service.AccountService;
+import jakarta.servlet.http.HttpSession;
+import jakarta.websocket.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +16,8 @@ import java.util.Map;
 public class AccountController {
     @Autowired
     private AccountService accountDAO;
-
+    @Autowired
+    private HttpSession Session;
 
     @GetMapping("/list")
     public List<Account> getListAccount() {
@@ -33,6 +36,7 @@ public class AccountController {
         } else {
             return " Update Account Successful";
         }
+
     }
 
     @PostMapping("/create")
