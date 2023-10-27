@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : Oct 27, 2023, 10:14:27 PM
+    Document   : Register
+    Created on : Oct 27, 2023, 10:28:26 PM
     Author     : Admin
 --%>
 
@@ -20,9 +20,10 @@
     <link rel="stylesheet" href="css/reset-css.css">
 
     <!-- link-style -->
-    <link rel="stylesheet" href="css/style-login.css">
+    <link rel="stylesheet" href="css/style-register.css">
 
     <!-- link-font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 </head>
@@ -37,31 +38,15 @@
             <div class="login_title">
                 <h1>Exam Schedule Management System</h1>
             </div>
-            <div class="login_form">
-                <h3>Sign in</h3>
-                <div class="login-account">
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">Username</span>
-                        <input type="text" class="form-control" placeholder="Email address" aria-label="Username"
-                            aria-describedby="addon-wrapping">
-                    </div>
-                    <div class="input-group flex-nowrap">
-                        <span class="input-group-text" id="addon-wrapping">Password</span>
-                        <input type="text" class="form-control" placeholder="Password sent in FPT gmail" aria-label="Username"
-                            aria-describedby="addon-wrapping">
-                    </div>
-                    <a href="Home-Student.html">
-                    <button type="submit">Login</button><br>
-                    </a>
-                </div>
-                
-                <a class="btn_google" href="Home-Student.html">
-                    <img src="images/google-icon.png" alt="icon-google">Login with Google</a> <br>
-                <a href="register.jsp">
-                    <button style="margin-top: 40px;" type="submit">Create Account</button>
-                </a>   
-                
 
+            <div class="login_form">
+                <h3>Create Account</h3>
+                <!-- <p>Sign in using @fpt.edu.vn for teacher and student</p> -->
+                <a class="btn_google" href="Home-Student.html">
+                    <img src="images/google-icon.png" alt="icon-google">Sign up with Google</a> <br>
+                <div style="margin-top: 40px; font-size: large;">   
+                Already have an ESMS Account? <a href="login.jsp">Login</a>
+                </div> 
                 <div class="contact">
                     <div class="btn_mail">
                         <a
