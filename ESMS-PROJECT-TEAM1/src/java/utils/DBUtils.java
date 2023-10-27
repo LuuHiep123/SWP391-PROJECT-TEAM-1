@@ -14,7 +14,7 @@ import java.sql.SQLException;
  */
 public class DBUtils {
 
-    private static final String DB_NAME = "SchedulerExam";
+    private static final String DB_NAME = "ScheduleExam";
     private static final String USER_NAME = "sa";
     private static final String PASSWORD = "12345";
 
