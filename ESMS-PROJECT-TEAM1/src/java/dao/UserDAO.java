@@ -49,7 +49,6 @@ public class UserDAO {
             e.printStackTrace();
         }
     
-        return user;
-        
-    }
+        return user;     
+    } 
 }

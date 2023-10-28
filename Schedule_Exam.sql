@@ -43,6 +43,7 @@ Email NVARCHAR(256) FOREIGN KEY REFERENCES Account(Email),
 CREATE TABLE [Room](
 Room_ID NVARCHAR(256) PRIMARY KEY NOT NULL,
 NumRoom INTEGER,
+[Date] DATE,
 Campus NVARCHAR(256),
 )
 
@@ -122,11 +123,11 @@ INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRO192',
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRN221','Advanced Cross-Platform Application Programming With .NET','178234/938454','EOS,PEA')
 
 -- ADD DATA INTO TABLE Room
-INSERT INTO [Room](Room_ID,NumRoom,Campus) VALUES ('1','101','HCM')
-INSERT INTO [Room] (Room_ID,NumRoom,Campus) VALUES ('2','102','HCM')
-INSERT INTO [Room] (Room_ID,NumRoom,Campus) VALUES ('3','103','HCM')
-INSERT INTO [Room] (Room_ID,NumRoom,Campus) VALUES ('4','104','HCM')
-INSERT INTO [Room] (Room_ID,NumRoom,Campus) VALUES ('5','105','HCM')
+INSERT INTO [Room](Room_ID,NumRoom,[Date],Campus) VALUES ('1','101','2023-11-12','HCM')
+INSERT INTO [Room] (Room_ID,NumRoom,[Date],Campus) VALUES ('2','102','2023-02-09','HCM')
+INSERT INTO [Room] (Room_ID,NumRoom,[Date],Campus) VALUES ('3','103','2023-10-02','HCM')
+INSERT INTO [Room] (Room_ID,NumRoom,[Date],Campus) VALUES ('4','104','2023-05-23','HCM')
+INSERT INTO [Room] (Room_ID,NumRoom,[Date],Campus) VALUES ('5','105','2023-06-28','HCM')
 
 -- ADD DATA INTO TABLE Semester
 INSERT INTO [Semester](SE_ID,SE_Name,StartDate,EndDate) VALUES ('1','Spring22','2022-01-01','2022-05-01')
