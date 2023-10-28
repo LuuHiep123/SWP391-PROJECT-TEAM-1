@@ -1,6 +1,13 @@
-USE [master]
+﻿USE [master]
 GO
-
+-- NGẮT KẾT NỐI DATABASE KHI NÀO KHÔNG DROP ĐƯỢC THÌ MỚI CHẠY CÂU NÀY
+USE master;
+GO
+ALTER DATABASE ScheduleExam
+SET SINGLE_USER
+WITH ROLLBACK IMMEDIATE;
+GO
+-- ----------------------------
 DROP DATABASE ScheduleExam
 GO
 
@@ -94,7 +101,7 @@ Bonus INTEGER,
 [Status] BIT,
 )
 
-CREATE TABLE [Teacher_ExamRoom_SLot](
+CREATE TABLE [Teacher_Schedule](
 Email NVARCHAR(256) FOREIGN KEY REFERENCES Account(Email),
 SE_ID NVARCHAR(256) FOREIGN KEY REFERENCES Semester(SE_ID),
 Subject_ID NVARCHAR(256) FOREIGN KEY REFERENCES [Subject](Subject_ID),
@@ -104,8 +111,8 @@ regulations NVARCHAR(256),
 )
 
 -- ADD DATA INTO TABLE Account
-INSERT INTO [Account] (Email,Account_ID,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hieplxse160641@fpt.edu.vn','SE160641','123123','LuuHiep','Male','186 le van viet','2002-09-16',null,'student')
-INSERT INTO [Account] (Email,Account_ID,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hoangnqse160625@fpt.edu.vn','SE160625','123456','QuocHoang','Male','Do Xuan Hop','2002-10-02',null,'student')
+INSERT INTO [Account] (Email,Account_ID,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hieplxse160641@fpt.edu.vn','SE160641','1','LuuHiep','Male','186 le van viet','2002-09-16',null,'Student')
+INSERT INTO [Account] (Email,Account_ID,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('hoangnqse160625@fpt.edu.vn','SE160625','1','QuocHoang','Male','Do Xuan Hop','2002-10-02',null,'Teacher')
 
 -- ADD DATA INTO TABLE Subject
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRF192','Programming Fundamentals','123456/789123','EOS,PEA')
