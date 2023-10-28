@@ -8,5 +8,6 @@ import java.util.List;
 public interface StudentExamScheduleInterFace {
 
     public List<StudentExamSchedule> showStudentExamSchedule();
+    public List<StudentExamSchedule> showStudentExamScheduleList();
 
 }
