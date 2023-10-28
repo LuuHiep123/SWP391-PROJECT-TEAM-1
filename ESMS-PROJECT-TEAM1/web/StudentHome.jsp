@@ -51,7 +51,7 @@
                                 <a class="nav-link" href="home.jsp">Home</a>
                             </li>
                             <li class="nav-item item-menu">
-                                <a class="nav-link" href="examschudle-student.jsp">Exam Schedule</a>
+                                <a class="nav-link" href="StudentExam.jsp">Exam Schedule</a>
                             </li>
                             <li class="nav-item item-menu">
                                 <a class="nav-link" href="contact.jsp">Contact</a>

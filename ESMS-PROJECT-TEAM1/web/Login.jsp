@@ -48,7 +48,7 @@
                             </div>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping">Password</span>
-                                <input type="text" class="form-control" placeholder="Password sent in FPT gmail" aria-label="Username"
+                                <input type="password" class="form-control" placeholder="Password sent in FPT gmail" aria-label="Username"
                                        aria-describedby="addon-wrapping" name="password">
                             </div>
                             <a href="home.jsp">
