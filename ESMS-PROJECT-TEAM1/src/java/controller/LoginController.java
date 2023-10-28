@@ -23,10 +23,10 @@ public class LoginController extends HttpServlet {
     private static final String LOGIN_PAGE = "Login.jsp";
 
     private static final String STUDENT = "Student";
-    private static final String STUDENT_PAGE = "Student.jsp";
+    private static final String STUDENT_PAGE = "StudentHome.jsp";
 
     private static final String TEARCHER = "Teacher";
-    private static final String TEARCHER_PAGE = "Teacher.jsp";
+    private static final String TEARCHER_PAGE = "TeacherHome.jsp";
 
     private static final String TESTING_STAFF = "TestingStaff";
     private static final String TESTING_STAFF_PAGE = "TestingStaff.jsp";
