@@ -39,7 +39,7 @@ public class UserDAO {
                     Date DOB = rs.getDate("DOB");
                     String role = rs.getString("roleName");
                     String Password = rs.getString("Password");
-                    user = new UserDTO(Email, AccountID, Name, Gender, Address, DOB, role);
+                    user = new UserDTO(Email, AccountID, Password, Name, Gender, Address, DOB, role);
                     if(!email.equals(Email) || !password.equals(Password)){
                         return null;
                     }
