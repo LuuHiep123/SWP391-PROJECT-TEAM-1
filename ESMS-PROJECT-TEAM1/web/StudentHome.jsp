@@ -55,7 +55,7 @@
                                 <a class="nav-link" href="home.jsp">Home</a>
                             </li>
                             <li class="nav-item item-menu">
-                                <a class="nav-link" href="StudentExamController">Exam Schedule</a>
+                                <a class="nav-link" href="MainController?action=GetStudentExam">Exam Schedule</a>
                             </li>
                             <li class="nav-item item-menu">
                                 <a class="nav-link" href="contact.jsp">Contact</a>

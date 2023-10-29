@@ -91,6 +91,16 @@
                     </div>
                 </nav>
             </header>
+            <%
+                String keysubject = request.getParameter("keysubject");
+                if (keysubject == null) {
+                    keysubject = "";
+                }
+            %>
+            <form action="MainController">
+                <input type="text" placeholder="Enter Key Subject" name="keysubject" value="<%=keysubject%>"/>
+                <input type="submit" name="action" value="SearchKeySubject"/>
+            </form>
             <section class="content">
                 <div class="container-fluid">
                     <div class="row">

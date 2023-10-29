@@ -4,44 +4,48 @@
  */
 package controller;
 
+import dao.StudentExamDAO;
+import dto.StudentExamDTO;
+import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ADMIN
  */
-public class MainController extends HttpServlet {
+public class SearchKeySubjectController extends HttpServlet {
 
-    private static final String LOGINPAGE = "Login.jsp";
-
-    private static final String LOGIN = "Login";
-    private static final String LOGIN_CONTROLLER = "LoginController";
-
-    private static final String GETSTUDENTEXAM = "GetStudentExam";
-    private static final String GETSTUDENTEXAM_CONTROLLER = "StudentExamController";
-
-    private static final String SEARCH_KEY_SUBJECT = "SearchKeySubject";
-    private static final String SEARCH_KEY_SUBJECT_CONTROLLLER = "SearchKeySubjectController";
+    private static final String ERROR = "StudentExam.jsp";
+    private static final String SUCCESS = "StudentExam.jsp";
+    private static final String LOGIN_PAGE = "Login.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = LOGINPAGE;
+        String url = ERROR;
         try {
-            String action = request.getParameter("action");
-            if (action == null) {
-                url = LOGINPAGE;
-            } else if (action.equals(LOGIN)) {
-                url = LOGIN_CONTROLLER;
-            } else if (action.equals(SEARCH_KEY_SUBJECT)) {
-                url = SEARCH_KEY_SUBJECT_CONTROLLLER;
-            }else if (action.equals(GETSTUDENTEXAM)) {
-                url = GETSTUDENTEXAM_CONTROLLER;
+            HttpSession session = request.getSession();
+            if (session != null && session.getAttribute("USER") != null) {
+                String keysubject = request.getParameter("keysubject");
+                UserDTO user = (UserDTO) session.getAttribute("USER");
+                String email = user.getEmail();
+                StudentExamDAO dao = new StudentExamDAO();
+                List<StudentExamDTO> ListExam = new ArrayList<>();
+                ListExam = dao.SearchKeySubject(email, keysubject);
+                if (!ListExam.isEmpty()) {
+                    url = SUCCESS;
+                    session.setAttribute("LISTSTUDENTEXAM", ListExam);
+                }
+            } else {
+                url = LOGIN_PAGE;
             }
 
         } catch (Exception e) {
