@@ -11,23 +11,23 @@ import java.util.Date;
  * @author ADMIN
  */
 public class UserDTO {
+
     private String Email;
     private String AccountID;
-    private String Password;
+
     private String Name;
     private String Gender;
     private String Address;
     private Date DOB;
     private String role;
-    
 
     public UserDTO() {
     }
 
-    public UserDTO(String Email, String AccountID, String Password, String Name, String Gender, String Address, Date DOB, String role) {
+    public UserDTO(String Email, String AccountID, String Name, String Gender, String Address, Date DOB, String role) {
         this.Email = Email;
         this.AccountID = AccountID;
-        this.Password = Password;
+
         this.Name = Name;
         this.Gender = Gender;
         this.Address = Address;
@@ -49,14 +49,6 @@ public class UserDTO {
 
     public void setAccountID(String AccountID) {
         this.AccountID = AccountID;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String Password) {
-        this.Password = Password;
     }
 
     public String getName() {
@@ -99,13 +91,6 @@ public class UserDTO {
         this.role = role;
     }
 
-    @Override
-    public String toString() {
-        return "UserDTO{" + "Email=" + Email + ", AccountID=" + AccountID + ", Password=" + Password + ", Name=" + Name + ", Gender=" + Gender + ", Address=" + Address + ", DOB=" + DOB + ", role=" + role + '}';
-    }
+    
 
-   
-    
-    
-    
 }
