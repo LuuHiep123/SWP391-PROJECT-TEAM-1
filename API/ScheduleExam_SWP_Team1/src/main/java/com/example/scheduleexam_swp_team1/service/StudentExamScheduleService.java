@@ -37,5 +37,14 @@ public class StudentExamScheduleService implements StudentExamScheduleInterFace 
             System.out.println("Something Wrong !!!");
         }
         return Collections.emptyList();
+
+
+
+    }
+
+    @Override
+    public List<StudentExamSchedule> showStudentExamScheduleList() {
+
+        return jdbcTemplate.query("select * from [Student_Exam_Schedule]",  new BeanPropertyRowMapper<>(StudentExamSchedule.class));
     }
 }

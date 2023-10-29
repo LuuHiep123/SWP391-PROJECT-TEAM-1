@@ -20,4 +20,9 @@ public class StudentExamScheduleController {
         return  studentScheduleService.showStudentExamSchedule();
 
     }
+    @GetMapping("/")
+    public List<StudentExamSchedule> showExamSchedulex() {
+        return  studentScheduleService.showStudentExamScheduleList();
+
+    }
 }

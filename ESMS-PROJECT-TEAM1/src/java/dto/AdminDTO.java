@@ -8,31 +8,31 @@ import java.util.Date;
 
 /**
  *
- * @author ADMIN
+ * @author HoangNQ
  */
-public class UserDTO {
-
-    private String Email;
+public class AdminDTO {
+     private String Email;
     private String AccountID;
-
+    private String Password;
     private String Name;
     private String Gender;
     private String Address;
     private Date DOB;
-    private String role;
+    private String roleName;
+    
 
-    public UserDTO() {
+    public AdminDTO(){
     }
 
-    public UserDTO(String Email, String AccountID, String Name, String Gender, String Address, Date DOB, String role) {
+    public AdminDTO(String Email, String AccountID, String Password, String Name, String Gender, String Address, Date DOB, String roleName) {
         this.Email = Email;
         this.AccountID = AccountID;
-
+        this.Password = Password;
         this.Name = Name;
         this.Gender = Gender;
         this.Address = Address;
         this.DOB = DOB;
-        this.role = role;
+        this.roleName = roleName;
     }
 
     public String getEmail() {
@@ -49,6 +49,14 @@ public class UserDTO {
 
     public void setAccountID(String AccountID) {
         this.AccountID = AccountID;
+    }
+
+    public String getPassword() {
+        return Password;
+    }
+
+    public void setPassword(String Password) {
+        this.Password = Password;
     }
 
     public String getName() {
@@ -84,13 +92,14 @@ public class UserDTO {
     }
 
     public String getRole() {
-        return role;
+        return roleName;
     }
 
     public void setRole(String role) {
-        this.role = role;
+        this.roleName = roleName;
     }
 
+  
+   
     
-
 }

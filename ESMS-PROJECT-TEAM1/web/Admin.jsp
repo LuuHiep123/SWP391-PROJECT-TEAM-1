@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>Hello admin!</h1>
+        <a href="AddTestingStaffAndTestingAdmin.jsp">Add here</a>
     </body>
 </html>
