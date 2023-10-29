@@ -9,17 +9,16 @@
         <servlet-class>controller.LoginController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
-        <servlet-name>AddTestingStaffController</servlet-name>
-        <servlet-class>controller.FuctioneAddByAdminController</servlet-class>
-=======
         <servlet-name>StudentExamController</servlet-name>
         <servlet-class>controller.StudentExamController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LogoutController</servlet-name>
         <servlet-class>controller.LogoutController</servlet-class>
->>>>>>> 58c7a5b539ade3dfb7f24540613f86128b223dc8
+    </servlet>
+    <servlet>
+        <servlet-name>FuctioneAddByAdminController</servlet-name>
+        <servlet-class>controller.FuctioneAddByAdminController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
@@ -30,17 +29,16 @@
         <url-pattern>/LoginController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
-        <servlet-name>AddTestingStaffController</servlet-name>
-        <url-pattern>/AddTestingStaffController</url-pattern>
-=======
         <servlet-name>StudentExamController</servlet-name>
         <url-pattern>/StudentExamController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LogoutController</servlet-name>
         <url-pattern>/LogoutController</url-pattern>
->>>>>>> 58c7a5b539ade3dfb7f24540613f86128b223dc8
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FuctioneAddByAdminController</servlet-name>
+        <url-pattern>/FuctioneAddByAdminController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
