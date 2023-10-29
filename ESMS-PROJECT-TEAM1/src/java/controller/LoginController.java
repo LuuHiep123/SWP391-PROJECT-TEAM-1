@@ -42,10 +42,10 @@ public class LoginController extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         String url = LOGIN_PAGE;
         try {
-            UserDAO dao = new UserDAO();
             UserDTO user = null;
             String email = request.getParameter("email");
             String password = request.getParameter("password");
+            UserDAO dao = new UserDAO();
             user = dao.Login(email, password);
             if (user == null) {
                 url = LOGIN_PAGE;

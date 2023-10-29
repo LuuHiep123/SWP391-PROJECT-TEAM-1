@@ -17,13 +17,12 @@
         <servlet-class>controller.LogoutController</servlet-class>
     </servlet>
     <servlet>
-<<<<<<< HEAD
         <servlet-name>SearchKeySubjectController</servlet-name>
         <servlet-class>controller.SearchKeySubjectController</servlet-class>
-=======
+    </servlet>
+    <servlet>
         <servlet-name>FuctioneAddByAdminController</servlet-name>
         <servlet-class>controller.FuctioneAddByAdminController</servlet-class>
->>>>>>> 2b5171a149f1ea6e743b0aeaa0b8fa7399f4b218
     </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
@@ -42,13 +41,12 @@
         <url-pattern>/LogoutController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-<<<<<<< HEAD
         <servlet-name>SearchKeySubjectController</servlet-name>
         <url-pattern>/SearchKeySubjectController</url-pattern>
-=======
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>FuctioneAddByAdminController</servlet-name>
         <url-pattern>/FuctioneAddByAdminController</url-pattern>
->>>>>>> 2b5171a149f1ea6e743b0aeaa0b8fa7399f4b218
     </servlet-mapping>
     <session-config>
         <session-timeout>
