@@ -56,6 +56,13 @@
                             </a>
                         </div>
                     </form>
+                    <%
+                        String message = (String)request.getAttribute("MESSAGE");
+                        if(message == null){
+                            message = "";
+                        }
+                    %>
+                    <%=message%>
                     <a class="btn_google" href="Home-Student.html">
                         <img src="images/google-icon.png" alt="icon-google">Login with Google</a> <br>
                     <a href="register.jsp">
