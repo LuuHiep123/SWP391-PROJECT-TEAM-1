@@ -128,11 +128,11 @@ INSERT INTO [Account] (Email,Account_ID,[Password],[Name],Gender,[Address],DOB,I
 INSERT INTO [Account] (Email,Account_ID,[Password],[Name],Gender,[Address],DOB,IMG,RoleName) VALUES ('testingstaff',null,'1','testingstaff',null,null,null,null,'TestingStaff')
 
 -- ADD DATA INTO TABLE Subject
-INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRF192','Programming Fundamentals','123456/789123','EOS,PEA')
+INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRF192','Programming Fundamentals','123456/789123','EOS')
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('MAE101','Mathematics for Engineering','712342','EOS')
 INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('CEA201','Computer Organization and Architecture','817234','EOS')
-INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRO192','Object-Oriented Programming','812784/912834','EOS,PEA')
-INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRN221','Advanced Cross-Platform Application Programming With .NET','178234/938454','EOS,PEA')
+INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRO192','Object-Oriented Programming','812784/912834','EOS')
+INSERT INTO [Subject] (Subject_ID,Subject_Name,Exam_Code,Form) VALUES ('PRN221','Advanced Cross-Platform Application Programming With .NET','178234/938454','EOS')
 
 -- ADD DATA INTO TABLE Room
 INSERT INTO [Room](Room_ID,NumRoom,[Date],Campus) VALUES ('1','101','2023-11-12','HCM')
@@ -154,4 +154,4 @@ INSERT INTO [Slot](Slot_ID,Slot_Name,Start_Time,End_Time) VALUES ('4','Slot_4','
 
 -- ADD DATA INTO TABLE Student_Exam_Schedule
 INSERT INTO [Student_Exam_Schedule](Email,SE_ID,Subject_ID,Room_ID,Slot_ID,regulations) VALUES ('hieplxse160641@fpt.edu.vn','2','CEA201','1','3','do not use GG')
-INSERT INTO [Student_Exam_Schedule](Email,SE_ID,Subject_ID,Room_ID,Slot_ID,regulations) VALUES ('hoangnqse160625@fpt.edu.vn','2','PRO192','2','1','do not use GG')
+INSERT INTO [Student_Exam_Schedule](Email,SE_ID,Subject_ID,Room_ID,Slot_ID,regulations) VALUES ('hieplxse160641@fpt.edu.vn','2','PRO192','2','1','do not use GG')
