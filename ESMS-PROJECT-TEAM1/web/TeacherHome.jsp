@@ -42,7 +42,7 @@
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
-                    <a class="navbar-logo" href="home.jsp"><img src="images/fpt-favicon.png" alt="Logo"
+                    <a class="navbar-logo" href="TeacherHome.jsp"><img src="images/fpt-favicon.png" alt="Logo"
                             width="70"></a>
                     <p class="navbar-title">Exam Schedule Management System</p>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -52,7 +52,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item item-menu">
-                                <a class="nav-link" href="home.jsp">Home</a>
+                                <a class="nav-link" href="TeacherHome.jsp">Home</a>
                             </li>
                             <li class="nav-item item-menu">
                                 <a class="nav-link" href="MainController?action=GetTeacherExamSchedule">Exam Schedule</a>

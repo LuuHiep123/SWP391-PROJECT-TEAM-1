@@ -25,8 +25,8 @@ import javax.servlet.http.HttpSession;
  */
 public class TeacherExamScheduleController extends HttpServlet {
 
-    private static final String ERROR = "StudentExam.jsp";
-    private static final String SUCCESS = "StudentExam.jsp";
+    private static final String ERROR = "TeacherExamSchedule.jsp";
+    private static final String SUCCESS = "TeacherExamSchedule.jsp";
     private static final String LOGIN_PAGE = "Login.jsp";
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
