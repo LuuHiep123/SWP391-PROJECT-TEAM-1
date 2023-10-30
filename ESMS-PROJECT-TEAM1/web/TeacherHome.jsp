@@ -4,6 +4,7 @@
     Author     : Admin
 --%>
 
+<%@page import="dto.UserDTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exam Schedule Management System</title>
+    <title>Student Home</title>
 
     <!-- link-favicon -->
     <link rel="icon" type="images/png" sizes="16x16" href="images/favicon.png">
@@ -34,11 +35,14 @@
 </head>
 
 <body>
+    <%
+        UserDTO user = (UserDTO)session.getAttribute("USER");       
+    %>
     <div class="container-fluid">
         <header>
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container">
-                    <a class="navbar-logo" href="home.jsp"><img src="images/fpt-favicon.png" alt="Logo"
+                    <a class="navbar-logo" href="TeacherHome.jsp"><img src="images/fpt-favicon.png" alt="Logo"
                             width="70"></a>
                     <p class="navbar-title">Exam Schedule Management System</p>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -48,10 +52,10 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item item-menu">
-                                <a class="nav-link" href="home.jsp">Home</a>
+                                <a class="nav-link" href="TeacherHome.jsp">Home</a>
                             </li>
                             <li class="nav-item item-menu">
-                                <a class="nav-link" href="examschudle-student.jsp">Exam Schedule</a>
+                                <a class="nav-link" href="MainController?action=GetTeacherExamSchedule">Exam Schedule</a>
                             </li>
                             <li class="nav-item item-menu">
                                 <a class="nav-link" href="contact.jsp">Contact</a>
@@ -65,15 +69,15 @@
                                     <div id="pnlProfile">
                                         <span class="dropdown-item">
                                             Name:
-                                            <span id="lblName" style="font-weight:bold;">FPT Nguyen</span>
+                                            <span id="lblName" style="font-weight:bold;"><%=user.getName()%></span>
                                         </span>
                                         <span class="dropdown-item">
                                             Email:
-                                            <span id="pnlEmail" style="font-weight:bold;">fptnguyen0@fpt.edu.vn</span>
+                                            <span id="pnlEmail" style="font-weight:bold;"><%=user.getEmail()%></span>
                                         </span>
                                         <span class="dropdown-item">
                                             User's role:
-                                            <span id="lblRole" style="font-weight:bold;">CEO</span>
+                                            <span id="lblRole" style="font-weight:bold;"><%=user.getRole()%></span>
 
                                         </span>
                                         <span class="dropdown-item">
@@ -81,7 +85,7 @@
                                         <span class="dropdown-item">
                                             <a id="lbtnSignOut"
                                                 style="text-decoration: none;display:inline-block;width:100%;"
-                                                href="login.jsp">Log out</a>
+                                                href="LogoutController">Log out</a>
                                         </span>
                                     </div>
                                 </div>
