@@ -24,6 +24,9 @@ public class MainController extends HttpServlet {
 
     private static final String GETSTUDENTEXAM = "GetStudentExam";
     private static final String GETSTUDENTEXAM_CONTROLLER = "StudentExamController";
+    
+    private static final String GET_TEACHER_EXAM = "GetTeacherExamSchedule";
+    private static final String GET_TEACHER_EXAM_CONTROLLER = "TeacherExamScheduleController";
 
     private static final String SEARCH_KEY_SUBJECT = "SearchKeySubject";
     private static final String SEARCH_KEY_SUBJECT_CONTROLLLER = "SearchKeySubjectController";
@@ -42,6 +45,8 @@ public class MainController extends HttpServlet {
                 url = SEARCH_KEY_SUBJECT_CONTROLLLER;
             }else if (action.equals(GETSTUDENTEXAM)) {
                 url = GETSTUDENTEXAM_CONTROLLER;
+            }else if (action.equals(GET_TEACHER_EXAM)) {
+                url = GET_TEACHER_EXAM_CONTROLLER;
             }
 
         } catch (Exception e) {
