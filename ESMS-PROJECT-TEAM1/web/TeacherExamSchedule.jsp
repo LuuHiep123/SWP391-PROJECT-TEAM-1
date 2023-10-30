@@ -19,14 +19,11 @@
         <c:if test="${sessionScope.USER == null || sessionScope.USER.role ne 'Teacher'}">
             <c:redirect url="Login.jsp"></c:redirect>
         </c:if>
-    
-    <h1>
-        Welcome Teacher : ${sessionScope.USER.getName()}
-    </h1>
-    <form action="MainController" method="POST">
-        <input type="submit" name="action" value="Logout"/>
-    </form>
-     <c:if test="${requestScope.LIST_USER != null}">
+
+        <form action="MainController" method="POST">
+            <input type="submit" name="action" value="Logout"/>
+        </form>
+        <c:if test="${requestScope.LIST_USER != null}">
             <c:if test="${not empty requestScope.LIST_USER}">
                 <table border="1">
                     <thead>
@@ -34,6 +31,7 @@
                             <th>No</th>
                             <th>Teacher</th>
                             <th>Semester</th>
+                            <th>Subject</th>
                             <th>Room</th>
                             <th>Slot</th>
                         </tr>
@@ -47,7 +45,11 @@
                                 <td>
                                     <input${sessionScope.USER.Name}/>
                                 </td>
-                               
+                                <td>${teacher.getSe_ID()}</td>
+                                <td>${teacher.getSubject_ID()}</td>
+                                <td>${teacher.getRoom_ID()}</td>
+                                <td>${teacher.getgetSlot_ID()}</td>
+
                             </tr>
                         </form>
                     </c:forEach>
@@ -56,5 +58,5 @@
         </c:if>
 
     </c:if>
-    </body>
+</body>
 </html>

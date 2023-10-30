@@ -44,8 +44,8 @@ public class StudentExamController extends HttpServlet {
                     url = SUCCESS;
                     session.setAttribute("LISTSTUDENTEXAM", ListExam);
                 }
-            }else{
-                url =LOGIN_PAGE;
+            } else {
+                url = LOGIN_PAGE;
             }
 
         } catch (Exception e) {
