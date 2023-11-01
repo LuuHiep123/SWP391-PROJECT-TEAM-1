@@ -19,17 +19,18 @@ import utils.DBUtils;
  */
 public class TeacherScheduleDAO {
 
-    private static final String GET_STUDENT_EXAM = "SELECT"
-            + " S.SE_Name,"
-            + " R.NumRoom,"
-            + " SL.Slot_Name,"
-            + " Subject_ID "
-            + " FROM Teacher_Schedule AS TS"
-            + " JOIN Semester AS S ON TS.SE_ID = S.SE_ID"
-            + " JOIN Room AS R ON TS.Room_ID = R.Room_ID"
-            + " JOIN Slot AS SL ON TS.Slot_ID = SL.Slot_ID ";
+    private static final String GET_STUDENT_EXAM = "SELECT\n"
+            + "    S.SE_Name,\n"
+            + "    R.NumRoom,\n"
+            + "    SL.Slot_Name,\n"
+            + "    Subject_ID\n"
+            + " FROM Teacher_Schedule AS TS\n"
+            + " JOIN Semester AS S ON TS.SE_ID = S.SE_ID\n"
+            + " JOIN Room AS R ON TS.Room_ID = R.Room_ID\n"
+            + " JOIN Slot AS SL ON TS.Slot_ID = SL.Slot_ID\n"
+            + " WHERE [Email] = ?";
 
-    public List<TeacherScheduleDTO> ListSchedelexam() throws SQLException {
+    public List<TeacherScheduleDTO> ListSchedelexam(String email) throws SQLException {
         Connection conn = null;
         PreparedStatement ptm = null;
         ResultSet rs = null;
@@ -38,14 +39,15 @@ public class TeacherScheduleDAO {
         try {
             conn = DBUtils.getConnection();
             if (conn != null) {
-                ptm = conn.prepareStatement(GET_STUDENT_EXAM);               
+                ptm = conn.prepareStatement(GET_STUDENT_EXAM);
+                ptm.setString(1, email);
                 rs = ptm.executeQuery();
                 while (rs.next()) {
-                    String se_name = rs.getNString("SE_Name");
-                    String NumRoom = rs.getNString("NumRoom");
-                    String Slot_Name = rs.getNString("Slot_Name");
-                    String Subject_ID = rs.getNString("Subject_ID");
-                    teacher = new TeacherScheduleDTO("", se_name, Subject_ID, NumRoom, Slot_Name, "");
+                    String se_name = rs.getString("SE_Name");
+                    String room_ID = rs.getString("NumRoom");
+                    String slot_id = rs.getString("Slot_Name");
+                    String subject_ID = rs.getString("Subject_ID");
+                    teacher = new TeacherScheduleDTO("", se_name, subject_ID, room_ID, slot_id, "");
                     list.add(teacher);
                 }
             }

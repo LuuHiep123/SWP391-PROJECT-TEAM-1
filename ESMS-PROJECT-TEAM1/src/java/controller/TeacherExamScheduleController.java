@@ -38,10 +38,10 @@ public class TeacherExamScheduleController extends HttpServlet {
             HttpSession session = request.getSession(false);
             if (session != null && session.getAttribute("USER") != null) {
                 UserDTO user = (UserDTO) session.getAttribute("USER");
-                String search = request.getParameter("search");
+                String email = user.getEmail();
                 TeacherScheduleDAO dao = new TeacherScheduleDAO();
                 List<TeacherScheduleDTO> ListExam = new ArrayList<>();
-                ListExam = dao.ListSchedelexam();
+                ListExam = dao.ListSchedelexam(email);
                 if (!ListExam.isEmpty()) {
                     url = SUCCESS;
                     session.setAttribute("TEACHER_EXAM_SCHEDULE", ListExam);

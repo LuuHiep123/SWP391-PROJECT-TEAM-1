@@ -23,13 +23,12 @@
         <form action="MainController" method="POST">
             <input type="submit" name="action" value="Logout"/>
         </form>
-        <c:if test="${requestScope.LIST_USER != null}">
-            <c:if test="${not empty requestScope.LIST_USER}">
+        <c:if test="${sessionScope.TEACHER_EXAM_SCHEDULE != null}">
+            <c:if test="${not empty sessionScope.TEACHER_EXAM_SCHEDULE}">
                 <table border="1">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Teacher</th>
                             <th>Semester</th>
                             <th>Subject</th>
                             <th>Room</th>
@@ -37,18 +36,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach var="teacher" varStatus="counter" items="${requestScope.TEACHER_EXAM_SCHEDULE}">
+                        <c:forEach var="teacher" varStatus="counter" items="${sessionScope.TEACHER_EXAM_SCHEDULE}">
                         <form action="MainController" method="POST">
 
                             <tr>
                                 <td>${counter.count}</td>
-                                <td>
-                                    <input${sessionScope.USER.Name}/>
-                                </td>
-                                <td>${teacher.getSe_ID()}</td>
-                                <td>${teacher.getSubject_ID()}</td>
-                                <td>${teacher.getRoom_ID()}</td>
-                                <td>${teacher.getgetSlot_ID()}</td>
+                                <td>${teacher.se_ID}</td>
+                                <td>${teacher.subject_ID}</td>
+                                <td>${teacher.room_ID}</td>
+                                <td>${teacher.slot_ID}</td>
 
                             </tr>
                         </form>
