@@ -23,6 +23,10 @@
         <form action="MainController" method="POST">
             <input type="submit" name="action" value="Logout"/>
         </form>
+          <form action="MainController">
+            <input type="text" name="searchSubjectTeacher" value="${param.searchSubjectTeacher}" />
+            <input type="submit" name="action" value="Search"/>
+        </form>
         <c:if test="${sessionScope.TEACHER_EXAM_SCHEDULE != null}">
             <c:if test="${not empty sessionScope.TEACHER_EXAM_SCHEDULE}">
                 <table border="1">

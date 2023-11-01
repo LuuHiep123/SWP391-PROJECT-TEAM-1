@@ -24,10 +24,13 @@
         <servlet-name>FuctioneAddByAdminController</servlet-name>
         <servlet-class>controller.FuctioneAddByAdminController</servlet-class>
     </servlet>
-   
     <servlet>
         <servlet-name>TeacherExamScheduleController</servlet-name>
         <servlet-class>controller.TeacherExamScheduleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SearchKeySubjectTeacherController</servlet-name>
+        <servlet-class>controller.SearchKeySubjectTeacherController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
@@ -57,7 +60,10 @@
         <servlet-name>TeacherExamScheduleController</servlet-name>
         <url-pattern>/TeacherExamScheduleController</url-pattern>
     </servlet-mapping>
-   
+    <servlet-mapping>
+        <servlet-name>SearchKeySubjectTeacherController</servlet-name>
+        <url-pattern>/SearchKeySubjectTeacherController</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
