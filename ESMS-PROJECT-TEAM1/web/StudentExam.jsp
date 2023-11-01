@@ -116,9 +116,9 @@
                                         <tr>
                                             <th>Subjects</th>
                                             <th>Time</th>
-                                            <th>Campus</th>
-                                            <th>Date</th>
+                                            <th><a href="MainController?action=SortByDate" >Date</a></th>
                                             <th>Room</th>
+                                            <th>Campus</th>
                                             <th>Form</th>
                                         </tr>
                                     </thead>

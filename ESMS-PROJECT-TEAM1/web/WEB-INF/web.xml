@@ -32,6 +32,14 @@
         <servlet-name>SearchKeySubjectTeacherController</servlet-name>
         <servlet-class>controller.SearchKeySubjectTeacherController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SortByDateController</servlet-name>
+        <servlet-class>controller.SortByDateController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetListExamOfTeacherController</servlet-name>
+        <servlet-class>controller.GetListExamOfTeacherController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>MainController</servlet-name>
         <url-pattern>/MainController</url-pattern>
@@ -63,6 +71,14 @@
     <servlet-mapping>
         <servlet-name>SearchKeySubjectTeacherController</servlet-name>
         <url-pattern>/SearchKeySubjectTeacherController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SortByDateController</servlet-name>
+        <url-pattern>/SortByDateController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetListExamOfTeacherController</servlet-name>
+        <url-pattern>/GetListExamOfTeacherController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

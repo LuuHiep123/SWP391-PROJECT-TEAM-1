@@ -4,65 +4,57 @@
  */
 package controller;
 
+import dao.StudentExamDAO;
+import dto.StudentExamDTO;
+import dto.UserDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author ADMIN
  */
-public class MainController extends HttpServlet {
+public class SortByDateController extends HttpServlet {
 
-    private static final String LOGINPAGE = "Login.jsp";
-
-    private static final String LOGIN = "Login";
-    private static final String LOGIN_CONTROLLER = "LoginController";
-
-    private static final String GETSTUDENTEXAM = "GetStudentExam";
-    private static final String GETSTUDENTEXAM_CONTROLLER = "StudentExamController";
-
-    private static final String GET_TEACHER_EXAM = "GetTeacherExamSchedule";
-    private static final String GET_TEACHER_EXAM_CONTROLLER = "TeacherExamScheduleController";
-
-    private static final String SEARCH_KEY_SUBJECT = "SearchKeySubject";
-    private static final String SEARCH_KEY_SUBJECT_CONTROLLLER = "SearchKeySubjectController";
-
-    private static final String SEARCH_KEY_SUBJECT_TEACHER = "Search";
-    private static final String SEARCH_KEY_SUBJECT_TEACHER_CONTROLLLER = "SearchKeySubjectTeacherController";
-
-    private static final String SORT_BY_DATE = "SortByDate";
-    private static final String SORT_BY_DATE_CONTROLLLER = "SortByDateController";
-
+   private static final String ERROR = "StudentExam.jsp";
+    private static final String SUCCESS = "StudentExam.jsp";
+    private static final String LOGIN_PAGE = "Login.jsp";
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = LOGINPAGE;
+        String url = LOGIN_PAGE;
         try {
-            String action = request.getParameter("action");
-            if (action == null) {
-                url = LOGINPAGE;
-            } else if (action.equals(LOGIN)) {
-                url = LOGIN_CONTROLLER;
-            } else if (action.equals(SEARCH_KEY_SUBJECT)) {
-                url = SEARCH_KEY_SUBJECT_CONTROLLLER;
-            } else if (action.equals(GETSTUDENTEXAM)) {
-                url = GETSTUDENTEXAM_CONTROLLER;
-            } else if (action.equals(GET_TEACHER_EXAM)) {
-                url = GET_TEACHER_EXAM_CONTROLLER;
-            } else if (action.equals(SEARCH_KEY_SUBJECT_TEACHER)) {
-                url = SEARCH_KEY_SUBJECT_TEACHER_CONTROLLLER;
-            } else if (action.equals(SORT_BY_DATE)) {
-                url = SORT_BY_DATE_CONTROLLLER;
+            HttpSession session = request.getSession(false);
+            if (session != null && session.getAttribute("USER") != null) {
+                UserDTO user = (UserDTO) session.getAttribute("USER");
+                String email = user.getEmail();
+                StudentExamDAO dao = new StudentExamDAO();
+                List<StudentExamDTO> ListExam = new ArrayList<>();
+                ListExam = dao.SortByDate(email);
+                if (!ListExam.isEmpty()) {
+                    url = SUCCESS;
+                    session.setAttribute("LISTSTUDENTEXAM", ListExam);
+                }
+            } else {
+                url = LOGIN_PAGE;
             }
 
         } catch (Exception e) {
+
             e.printStackTrace();
+
         } finally {
+
             request.getRequestDispatcher(url).forward(request, response);
+
         }
     }
 

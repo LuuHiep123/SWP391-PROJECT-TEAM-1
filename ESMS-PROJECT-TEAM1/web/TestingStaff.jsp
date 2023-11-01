@@ -12,6 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello testingstaff!</h1>
+        <a href="#">View Student Exam Schedule</a><br/>
+        <a href="MainController?action=GetlistExamOfTeacher">View Teacher Exam Schedule</a><br/>
+        <a href="#">View exam information of Teacher</a>
     </body>
 </html>
